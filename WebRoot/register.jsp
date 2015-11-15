@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	${RequestScope.lack }
+	${requestScope.failmessage }
     <form action="register" method="post">
     手机号：<input name="users.phone"><br>
     密 码<input name="users.password" type="password"> <br>

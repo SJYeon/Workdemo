@@ -147,7 +147,7 @@ public class Users implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	@Column(name = "email", nullable = false, length = 15)
+	@Column(name = "email", nullable = false, length = 20)
 	public String getEmail() {
 		return this.email;
 	}

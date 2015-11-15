@@ -35,4 +35,16 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Users getUsersByPhone(String phone) {
+		// TODO Auto-generated method stub
+		Object[] args = {phone};
+		List<Users> list = this.getHibernateTemplate().find("from com.test.bean.Users u where phone=?",args);
+		Users users = null;
+		if(list.size()>0){
+			users = list.get(0);
+		}
+		return users;
+	}
 }

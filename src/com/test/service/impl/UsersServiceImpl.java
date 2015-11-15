@@ -51,5 +51,28 @@ public class UsersServiceImpl implements IUsersService {
 	public void setDao(IUsersDao dao) {
 		this.dao = dao;
 	}
+
+	@Override
+	public boolean login(Users users) {
+		// TODO Auto-generated method stub
+
+		Users us = dao.getUsersByPhone(users.getPhone());
+		try {
+			if(us != null){
+				String pwdmd5 = MD5.md5(users.getPassword());
+				if(pwdmd5.equals(us.getPassword())){
+				return true;
+				}
+			}
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 	
 }

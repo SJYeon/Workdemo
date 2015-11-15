@@ -12,11 +12,13 @@
 			</action>
 		-->
 			<action name="register" class="usersaction" method="register">
-				<result name="success">/success.jsp</result>
-				<result name="fail">/fail.jsp</result>
-				<result name="lack">/register.jsp</result>
+				<result name="success" >/index.jsp</result>
+				<result name="fail" type="redirect">/register.jsp</result>
 			</action>
-			
+			<action name="login" class="usersaction" method="login">
+				<result name="success">/index.jsp</result>
+				<result name="error" type="redirect">/login.jsp</result>
+			</action>
 			<!--  
 			<action name="intercopterTest" class="intercopterTest" method="intercopterTest">
 				

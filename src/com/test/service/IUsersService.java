@@ -6,5 +6,6 @@ import com.test.dao.IUsersDao;
 public interface IUsersService {
 
 	public int register(Users users);
-
+	public boolean login(Users users);
+	
 }

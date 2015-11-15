@@ -24,14 +24,25 @@ public class UsersAction {
 	public String register(){
 	
 		if(usersService.register(users) == 1){
+			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
 			return "success";
 		}
 		else{
+			ServletActionContext.getRequest().setAttribute("failmessage", "信息错误请重新注册！");
 			return "fail";
 		}
 
 	}
-	
+	public String login(){
+		if(usersService.login(users)){
+			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
+			return "success";
+		}
+		else{
+			ServletActionContext.getRequest().setAttribute("loginmessage", "登录错误，请重新登录！");
+			return "error";
+		}
+	}
 	public Users getUsers() {
 		return users;
 	}
