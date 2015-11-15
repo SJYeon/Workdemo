@@ -1,9 +1,10 @@
 package com.test.dao;
 
-import com.test.bean.User;
+import com.test.bean.Users;
 
 public interface IUsersDao {
 
-	public abstract void addUsers(User user);
-
+	public abstract int addUsers(Users user);
+	public abstract int getUsersById(int id);
+	public abstract int deleteUsersById(int idr);
 }

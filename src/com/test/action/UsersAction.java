@@ -2,31 +2,49 @@ package com.test.action;
 
 import javax.annotation.Resource;
 
-import com.test.bean.User;
+import org.apache.struts2.ServletActionContext;
+
+import com.test.bean.Users;
 import com.test.service.IUsersService;
 
 public class UsersAction {
 	
-	private User user;
+	private Users users;
 	@Resource(name="usersservice")
-	private IUsersService usersservice;
+	private IUsersService usersService;
 	
-	public String Register(){
-		System.out.println(user.getName());
-		usersservice.register(user);
-		return "success";
+	public String register(){
+		if(users != null){
+			//System.out.println(users.getPhone());
+			if(usersService.register(users) == 1){
+			return "success";
+			}
+			else{
+				return "fail";
+			}
+		}
+		else{
+			//ServletActionContext.getRequest().getSession().setAttribute("username", user.getName());
+			ServletActionContext.getRequest().setAttribute("lack", "信息缺失，请重新注册");
+			return "lack";
+		}
 	}
 	
-	public User getUser() {
-		return user;
+	public Users getUsers() {
+		return users;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setUsers(Users users) {
+		this.users = users;
 	}
-	public IUsersService getUsersservice() {
-		return usersservice;
+
+	public IUsersService getUsersService() {
+		return usersService;
 	}
-	public void setUsersservice(IUsersService usersservice) {
-		this.usersservice = usersservice;
+
+	public void setUsersService(IUsersService usersService) {
+		this.usersService = usersService;
 	}
+
+	
 }

@@ -16,7 +16,7 @@
      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<context:annotation-config />
-
+	
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
@@ -27,6 +27,7 @@
 		</property>
 		<property name="username" value="root"></property>
 		<property name="password" value="12345"></property>
+		
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -38,13 +39,27 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
+				<prop key="hibernate.show_sql">true</prop>
 			</props>
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>com.test.bean.User</value></list>
+
+				<value>com.test.bean.Users</value>
+				<value>com.test.bean.Collections</value>
+				<value>com.test.bean.Shoppingcart</value>
+				<value>com.test.bean.Proxys</value>
+				<value>com.test.bean.Share</value>
+				<value>com.test.bean.Proxyperson</value>
+				<value>com.test.bean.Goods</value>
+				<value>com.test.bean.Consigneeinfo</value>
+				<value>com.test.bean.Ads</value>
+				<value>com.test.bean.Orders</value>
+				<value>com.test.bean.Goodspics</value></list>
 		</property></bean>
+		
 		<bean id="usersdao" class="com.test.dao.impl.UsersDaoImpl">
+		
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>
 			</property>

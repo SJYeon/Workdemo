@@ -11,8 +11,10 @@
 				<result name="fail" >/fail.jsp</result>
 			</action>
 		-->
-			<action name="register" class="usersaction" method="Register">
+			<action name="register" class="usersaction" method="register">
 				<result name="success">/success.jsp</result>
+				<result name="fail">/fail.jsp</result>
+				<result name="lack">/register.jsp</result>
 			</action>
 			
 			<!--  
