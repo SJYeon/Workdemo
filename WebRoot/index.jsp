@@ -21,9 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-     <form action="register" method="post">
-    <input name="user.name"><br>
-    <input type="submit">
-    </form>
+ 
   </body>
 </html>
