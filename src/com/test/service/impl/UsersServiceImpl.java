@@ -11,7 +11,10 @@ import com.test.basis.MD5;
 import com.test.bean.Users;
 import com.test.dao.IUsersDao;
 import com.test.service.IUsersService;
-
+/**
+ * @author Fu 
+ * Users表的中间服务层
+ */
 public class UsersServiceImpl implements IUsersService {
 	@Resource(name="usersdao")	
 	private IUsersDao dao;
@@ -21,14 +24,9 @@ public class UsersServiceImpl implements IUsersService {
 		try {
 			// 对密码进行MD5加密
 			users.setPassword(MD5.md5(users.getPassword()));
-			/*
-			 * 设置注册时间，用户积分初始为0，设置用户类型初始为普通（ordinary）
-			 * 设置版本数 初始为0
-			 */
+			//设置注册时间
 			users.setRegistratetime(new Date(System.currentTimeMillis()));
-			users.setIntegral(0);
-			users.setUserclass("ordinary");
-			users.setVersion(0);
+
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,11 +53,13 @@ public class UsersServiceImpl implements IUsersService {
 	@Override
 	public boolean login(Users users) {
 		// TODO Auto-generated method stub
-
+		//调用底层查找操作
 		Users us = dao.getUsersByPhone(users.getPhone());
 		try {
 			if(us != null){
+				//对面进行MD5加密
 				String pwdmd5 = MD5.md5(users.getPassword());
+				//判断密码是否相同
 				if(pwdmd5.equals(us.getPassword())){
 				return true;
 				}

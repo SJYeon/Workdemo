@@ -175,7 +175,7 @@ public class Users implements java.io.Serializable {
 		this.registratetime = registratetime;
 	}
 
-	@Column(name = "integral", nullable = false)
+	@Column(name = "integral", nullable = false, insertable = false, updatable = false)
 	public Integer getIntegral() {
 		return this.integral;
 	}
@@ -184,7 +184,7 @@ public class Users implements java.io.Serializable {
 		this.integral = integral;
 	}
 
-	@Column(name = "userclass", nullable = false, length = 10)
+	@Column(name = "userclass", nullable = false, length = 10, insertable = false, updatable = false)
 	public String getUserclass() {
 		return this.userclass;
 	}
@@ -220,7 +220,7 @@ public class Users implements java.io.Serializable {
 		this.area = area;
 	}
 	@Version
-	@Column(name = "version", nullable = false)
+	@Column(name = "version", nullable = false, insertable = false, updatable = false)
 	public Integer getVersion() {
 		return this.version;
 	}

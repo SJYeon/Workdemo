@@ -14,7 +14,7 @@
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
      http://www.springframework.org/schema/tx   
      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-<import resource="applicationContext-zfw.xml"/>
+
 	<context:annotation-config />
 	
 	<bean id="dataSource"
@@ -64,10 +64,10 @@
 				<ref local="sessionFactory"/>
 			</property>
 		</bean>
-		<!--  
+		
 		<bean id="usersservice" class="com.test.service.impl.UsersServiceImpl"></bean>
 		
 		<bean id="usersaction" class="com.test.action.UsersAction"></bean>
-		-->
+		
 	
 	</beans>
