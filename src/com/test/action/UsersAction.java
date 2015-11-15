@@ -6,22 +6,29 @@ import org.apache.struts2.ServletActionContext;
 
 import com.test.bean.Users;
 import com.test.service.IUsersService;
-
+/**
+ * 
+ * @author Fu
+ *Users表相关操作的Action
+ *
+ */
 public class UsersAction {
 	
 	private Users users;
 	@Resource(name="usersservice")
 	private IUsersService usersService;
-	
+	/**
+	 * 用户注册方法
+	 * @return success 注册成功; fail 注册失败
+	 */
 	public String register(){
-		
-			//System.out.println(users.getPhone());
-			if(usersService.register(users) == 1){
+	
+		if(usersService.register(users) == 1){
 			return "success";
-			}
-			else{
-				return "fail";
-			}
+		}
+		else{
+			return "fail";
+		}
 
 	}
 	

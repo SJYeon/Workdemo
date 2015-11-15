@@ -14,14 +14,11 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
 	 */
     @Override
 	public int addUsers(Users users){
-    	try{
-
+    	try{    		
     		this.getHibernateTemplate().save(users);
-
     		return 1;
     	}
     	catch(Exception e){
-    	
     		System.out.println(e.getMessage());
     		return 0;
     	}
