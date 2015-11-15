@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<include file="struts_zfw.xml"></include>
-
+<package name="users" extends="struts-default">
 		<!--  <interceptors>
 			<interceptor name="test" class="com.intercopter.IntercopterTest" ></interceptor>
 		</interceptors>-->
@@ -12,8 +11,14 @@
 				<result name="fail" >/fail.jsp</result>
 			</action>
 		-->
-		
-	
+			<action name="register" class="usersaction" method="register">
+				<result name="success" >/index.jsp</result>
+				<result name="fail" >/register.jsp</result>
+			</action>
+			<action name="login" class="usersaction" method="login">
+				<result name="success">/index.jsp</result>
+				<result name="error" >/login.jsp</result>
+			</action>
 			<!--  
 			<action name="intercopterTest" class="intercopterTest" method="intercopterTest">
 				
@@ -23,5 +28,5 @@
 				<interceptor-ref name="test"/>
 			</action>
 			-->
-		
+		</package>
 </struts>    
