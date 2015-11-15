@@ -26,8 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	${requestScope.failmessage }
     <form action="register" method="post">
     手机号：<input name="users.phone"><br>
-    密 码<input name="users.password" type="password"> <br>
-    确认密码<input type="password"><br>
+    密 码：<input name="users.password" type="password"> <br>
+    确认密码：<input type="password"><br>
+    邀请人id：<input name="inviterid"> <br>
     邮箱：<input name="users.email"><br>
     所在省：<select name="users.province">
     <option value="陕西">陕西</option>

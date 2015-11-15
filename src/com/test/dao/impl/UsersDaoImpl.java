@@ -15,6 +15,7 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
     @Override
 	public int addUsers(Users users){
     	try{    		
+    		
     		this.getHibernateTemplate().save(users);
     		return 1;
     	}
@@ -23,17 +24,27 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
     		return 0;
     	}
     }
-
+    /**
+     * 通过id查找用户
+     */
 	@Override
-	public int getUsersById(int id) {
+	public Users getUsersById(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		Object[] args = {id};
+		List<Users> list = this.getHibernateTemplate().find("from com.test.bean.Users u where id=?", args);
+		Users users = null;
+		if(list.size()>0){
+			users = list.get(0);
+		}
+		
+		return users;
 	}
 
 	@Override
-	public int deleteUsersById(int idr) {
+	public boolean deleteUsersById(int idr) {
 		// TODO Auto-generated method stub
-		return 0;
+		return true;
 	}
 
 	@Override

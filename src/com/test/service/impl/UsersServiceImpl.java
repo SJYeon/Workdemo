@@ -74,5 +74,13 @@ public class UsersServiceImpl implements IUsersService {
 		
 		return false;
 	}
+
+	@Override
+	public Users getUsersById(int id) {
+		// TODO Auto-generated method stub
+	
+		Users users = dao.getUsersById(id);
+		return users;
+	}
 	
 }

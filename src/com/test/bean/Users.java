@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Version;
 
 /**
  * Users entity. @author MyEclipse Persistence Tools
@@ -175,7 +174,7 @@ public class Users implements java.io.Serializable {
 		this.registratetime = registratetime;
 	}
 
-	@Column(name = "integral", nullable = false, insertable = false, updatable = false)
+	@Column(name = "integral", nullable = false, insertable = false, updatable = false )
 	public Integer getIntegral() {
 		return this.integral;
 	}
@@ -184,7 +183,7 @@ public class Users implements java.io.Serializable {
 		this.integral = integral;
 	}
 
-	@Column(name = "userclass", nullable = false, length = 10, insertable = false, updatable = false)
+	@Column(name = "userclass", nullable = false, length = 10, insertable = false, updatable = false )
 	public String getUserclass() {
 		return this.userclass;
 	}
@@ -219,8 +218,8 @@ public class Users implements java.io.Serializable {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	@Version
-	@Column(name = "version", nullable = false, insertable = false, updatable = false)
+
+	@Column(name = "version", nullable = false, insertable = false, updatable = false )
 	public Integer getVersion() {
 		return this.version;
 	}

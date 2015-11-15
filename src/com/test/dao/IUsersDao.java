@@ -5,7 +5,7 @@ import com.test.bean.Users;
 public interface IUsersDao {
 
 	public abstract int addUsers(Users user);
-	public abstract int getUsersById(int id);
+	public abstract Users getUsersById(int id);
 	public abstract Users getUsersByPhone(String phone);
-	public abstract int deleteUsersById(int idr);
+	public abstract boolean deleteUsersById(int idr);
 }

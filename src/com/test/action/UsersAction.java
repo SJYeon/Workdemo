@@ -15,6 +15,8 @@ import com.test.service.IUsersService;
 public class UsersAction {
 	
 	private Users users;
+	private String inviterid;
+
 	@Resource(name="usersservice")
 	private IUsersService usersService;
 	/**
@@ -22,16 +24,30 @@ public class UsersAction {
 	 * @return success 注册成功; fail 注册失败
 	 */
 	public String register(){
-	
+		//查询是否有邀请人 id
+		if(inviterid != null && !inviterid.equals("")){
+			//查找邀请人
+			Users inviter = usersService.getUsersById(Integer.parseInt(inviterid));
+			if(inviter == null){
+				ServletActionContext.getRequest().setAttribute("failmessage", "信息错误请重新注册！");
+				return "fail";
+			}
+			//将邀请人添加到信息中
+			users.setUsers(inviter);
+		}
+//		return "success";
+		//判断是否插入成功
 		if(usersService.register(users) == 1){
+			//插入成功 则将手机号加入session中
 			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
 			return "success";
 		}
 		else{
+			//如果插入失败 则返回错误信息
 			ServletActionContext.getRequest().setAttribute("failmessage", "信息错误请重新注册！");
 			return "fail";
 		}
-
+		
 	}
 	public String login(){
 		if(usersService.login(users)){
@@ -59,5 +75,11 @@ public class UsersAction {
 		this.usersService = usersService;
 	}
 
+	public String getInviterid() {
+		return inviterid;
+	}
+	public void setInviterid(String inviterid) {
+		this.inviterid = inviterid;
+	}
 	
 }
