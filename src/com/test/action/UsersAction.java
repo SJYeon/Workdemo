@@ -14,7 +14,7 @@ public class UsersAction {
 	private IUsersService usersService;
 	
 	public String register(){
-		if(users != null){
+		
 			//System.out.println(users.getPhone());
 			if(usersService.register(users) == 1){
 			return "success";
@@ -22,12 +22,7 @@ public class UsersAction {
 			else{
 				return "fail";
 			}
-		}
-		else{
-			//ServletActionContext.getRequest().getSession().setAttribute("username", user.getName());
-			ServletActionContext.getRequest().setAttribute("lack", "信息缺失，请重新注册");
-			return "lack";
-		}
+
 	}
 	
 	public Users getUsers() {
