@@ -1,0 +1,681 @@
+<!doctype html>
+<html>
+<head>
+<title>产品详情页</title>
+<meta charset="UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="css/module/module.css">
+<link rel="stylesheet" href="css/reset/reset.css">
+<link rel="stylesheet" href="css/details/details.css">
+<link rel="stylesheet" href="css/copy/copy.css">
+<link rel="stylesheet" href="css/public-index/public-index.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type=text/javascript src="js/jquery.jqzoom.js"></script>
+<script type=text/javascript src="js/jquery.livequery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        window.onload = function()
+        {
+            var $li = $('#tab li');
+            var $tab = $('#preview ');
+            var $div = $('#tp ');
+            var $protab = $('#pro-tab ');
+            var $protbl = $('#pro-tbl ');
+            $li.mouseover(function(){
+                var $this = $(this);
+                var $t = $this.index();
+
+                $tab.css('display','none');
+                $tab.eq($t).css('display','block');
+            })
+            $div.click(function(){
+                var $this = $(this);
+                var $t = $this.index();
+                $div.removeClass();
+                $this.addClass('t-selected');
+            })
+
+            $protbl.click(function(){
+                var $this = $(this);
+                var $t = $this.index();
+                $protbl.removeClass();
+                $this.addClass('active');
+                $protab.css('display','none');
+                $protab.eq($t).css('display','block');
+            })
+        }
+    });
+    $(function(){
+
+    /* 鼠标移动小图，小图对应大图显示在大图上，并替换放大镜中的图*/
+    $("#specList ul li img").livequery("mouseover",function(){
+        var imgSrc = $(this).attr("src");
+        var i = imgSrc.lastIndexOf(".");
+        var unit = imgSrc.substring(i);
+        imgSrc = imgSrc.substring(0,i);
+        var imgSrc_small = $(this).attr("src_D");
+        var imgSrc_big = $(this).attr("src_H");
+        $("#bigImg").attr({"src": imgSrc_small ,"jqimg": imgSrc_big });
+        $(this).css({"border":"2px solid #3399cc","padding":"1px"});
+    });
+
+    $("#specList ul li img").livequery("mouseout",function(){
+        $(this).css({"border":"1px solid #ddd","padding":"2px"});
+    });
+
+    //使用jqzoom
+    $(".jqzoom").jqueryzoom({
+        xzoom: 300, //放大图的宽度(默认是 200)
+        yzoom: 300, //放大图的高度(默认是 200)
+        offset: 10, //离原图的距离(默认是 10)
+        position: "right", //放大图的定位(默认是 "right")
+        preload:1
+    });
+
+    /*如果小图过多，则出现滚动条在一行展示*/
+    var btnNext = $('#specRight');
+    var btnPrev = $('#specLeft')
+    var ul = btnPrev.next().find('ul');
+
+    var len = ul.find('li').length;
+    var i = 0 ;
+    if (len > 5) {
+        $("#specRight").addClass("specRightF").removeClass("specRightT");
+        ul.css("width", 54 * len)
+        btnNext.click(function(e) {
+            if(i>=len-5){
+
+                return;
+            }
+            i++;
+            if(i == len-5){
+                $("#specRight").addClass("specRightT").removeClass("specRightF");
+            }
+            $("#specLeft").addClass("specLeftF").removeClass("specLeftT");
+            moveS(i);
+        })
+        btnPrev.click(function(e) {
+            if(i<=0){
+                return;
+            }
+            i--;
+            if(i==0){
+                $("#specLeft").addClass("specLeftT").removeClass("specLeftF");
+            }
+            $("#specRight").addClass("specRightF").removeClass("specRightT");
+            moveS(i);
+        })
+    }
+    function moveS(i) {
+        ul.animate({left:-54 * i}, 500)
+    }
+    function picAuto(){
+      if ($(".listImg li").size()<=5) {
+        $("#specLeft,#specRight").hide();
+      }
+    }
+    picAuto();
+});
+</script>
+<script type="text/javascript">
+    $.fn.smartFloat = function() {
+    var position = function(element) {
+        var top = element.position().top, pos = element.css("position");
+        $(window).scroll(function() {
+            var scrolls = $(this).scrollTop();
+            if (scrolls > top) {
+                if (window.XMLHttpRequest) {
+                    element.css({
+                        position: "fixed",
+                        top: 0
+                    });
+                } else {
+                    element.css({
+                        top: scrolls
+                    });
+                }
+            }else {
+                element.css({
+                    position: "absolute",
+                    top: top
+                });
+            }
+        });
+    };
+    return $(this).each(function() {
+        position($(this));
+    });
+};
+
+//绑定
+$("#float").smartFloat();
+</script>
+</head>
+<body>
+<div class="head">
+    <div class="cont">
+        <div class="fl">
+            <span class="head_tit">
+                欢迎光临优粮我卖网！
+            </span>
+            <a>登录</a>
+            <a>免费注册</a>
+        </div>
+        <div class="fl">
+            <i class="iconfont ico">&#xe60a;</i>
+            <span class="head_tit">送货至：</span>
+            <a>
+                <b>山东青岛</b>
+            </a>
+        </div>
+        <div class="fr">
+            <ul>
+                <a class="my">
+                    <li class="list">我的优粮<i class="iconfont">&#xe607;</i>
+                    <div class="mine">
+                        <div class="m-top">
+                            <div class="m-center">
+                                <img src="images/40.png">
+                                <p>用户名</p>
+                                <p>信息&nbsp;<b>0</b></p>
+                            </div>
+                            <div class="m-final">
+                                <ul>
+                                    <li>待处理订单</li>
+                                    <li>咨询回复</li>
+                                    <li>返修退换货</li>
+                                </ul>
+                                <ul>
+                                    <li>我的关注</li>
+                                    <li>我的账户</li>
+                                    <li>我的订制商城</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="para">最近浏览</p><p class="more">更多<i class="iconfont">&#xe601;</i></p>
+                        <ul>
+                            <li class="ll">
+                                <img src="images/10.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/11.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/12.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/13.jpg">
+                            </li>
+                        </ul>
+                    </div>
+                    </li>
+                </a>
+                <li class="space me"></li>
+                <li class="list"><i class="iconfont ico1">&#xe602;</i><a>购物车</a></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico2">&#xe622;</i><a>手机优粮</a><i class="iconfont">&#xe607;</i>
+                </li>
+                <li class="space"></li>
+                <li class="list"><a>卖家中心</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><a>客户服务</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico3">&#xe627;</i><a>网站导航</a><i class="iconfont">&#xe607;</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="ad">
+    <img src="images/top.jpg">
+</div>
+<div class="search">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+    <div class="img">
+        <img src="images/ad.jpg">
+    </div>
+    <div class="sear">
+        <span class="s-pro" id="pro" onclick="rechange()">商品</span>
+        <span class="s-active" id="hot" onclick="change()">热铺</span>
+        <div class="input" id="inp">
+            <i class="iconfont">&#xe620;</i>
+            <input placeholder="推广商品名称">
+            <span>搜索</span>
+        </div>
+        <div class="inputp" id="inp1">
+            <i class="iconfont">&#xe620;</i>
+            <input placeholder="推广商户名称">
+            <span>搜索</span>
+        </div>
+        <span class="sp">海米大虾</span>
+        <span class="sp">日照绿茶</span>
+        <span class="sp">黑猪肉</span>
+        <span class="sp">香菇</span>
+    </div>
+    <div class="right">
+        <div class="code">
+            <span>微信逛优粮</span>
+            <img src="images/code.jpg">
+        </div>
+    </div>
+</div>
+<div class="top">
+    <div class="left">
+        商品分类
+        <div class="menu">
+        <ul>
+            <li class="l1">
+            <i class="iconfont ico1">&#xe62e;</i>
+            <h3>水果蔬菜</h3>
+            <p>水果&nbsp;&nbsp;蔬菜&nbsp;&nbsp;果蔬礼盒</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l2">
+            <i class="iconfont ico2">&#xe609;</i>
+            <h3>肉类禽蛋</h3>
+            <p>猪肉&nbsp;&nbsp;牛肉&nbsp;&nbsp;鸡肉</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l3">
+            <i class="iconfont ico3">&#xe62f;</i>
+            <h3>海鲜水产</h3>
+            <p>鱼&nbsp;&nbsp;虾&nbsp;&nbsp;贝</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l4">
+            <i class="iconfont ico4">&#xe604;</i>
+            <h3>粮油副食</h3>
+            <p>大米&nbsp;&nbsp;食用油&nbsp;&nbsp;面粉</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l5">
+            <i class="iconfont ico5">&#xe613;</i>
+            <h3>零食冲饮</h3>
+            <p>日照绿茶&nbsp;&nbsp;休闲食品</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l6">
+            <i class="iconfont ico6">&#xe62b;</i>
+            <h3>生态日用</h3>
+            <p>小家电&nbsp;&nbsp;洗衣粉&nbsp;&nbsp;牙膏</p>
+            <div class="submenup">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+            <li class="l7">
+            <i class="iconfont ico7">&#xe60d;</i>
+            <h3>手工艺品</h3>
+            <p>珊瑚饰品&nbsp;&nbsp;根雕&nbsp;&nbsp;贝壳</p>
+            <div class="submenu">
+                <div class="s-menu">
+                    <h3 class="s-tit">蔬菜</h3>
+                    <p class="s-sort">新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类&nbsp;新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类新鲜蔬菜&nbsp;有机蔬菜&nbsp;食用鲜菌&nbsp;果菜类</p>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="right">
+        <ul>
+            <li class="active">特色农产品</li>
+            <li>联农百货</li>
+            <li>坤农农资</li>
+            <li>优粮惠</li>
+            <li>本地生活</li>
+            <li>优粮农场</li>
+        </ul>
+        <span class="sp">消费者保障</span>
+    </div>
+</div>
+<div class="p-top">
+    <div class="p-tit">
+        <h3>粮油副食></h3>
+        <p>海米大虾>商户名>十月稻香>十月稻香大米</p>
+    </div>
+    <div class="p-info">
+        <div class="p-img">
+            <div class="p-top" id="preview" style="display:block;">
+                <div class="jqzoom">
+                    <img id="bigImg" src="images/info.jpg" jqimg="images/info.jpg">
+                </div>
+            </div>
+            <div class="p-top" id="preview">
+                <div class="jqzoom">
+                    <img id="bigImg" src="images/10.jpg" jqimg="images/10.jpg">
+                </div>
+            </div>
+            <div class="p-top" id="preview">
+                <div class="jqzoom">
+                    <img id="bigImg" src="images/11.jpg" jqimg="images/11.jpg">
+                </div>
+            </div>
+            <div class="p-top" id="preview">
+                <div class="jqzoom">
+                    <img id="bigImg" src="images/12.jpg" jqimg="images/12.jpg">
+                </div>
+            </div>
+            <div class="p-middle">
+                <ul id="tab">
+                    <li>
+                        <img src="images/p2.jpg">
+                    </li>
+                    <li>
+                        <img src="images/p3.jpg">
+                    </li>
+                    <li>
+                        <img src="images/p2.jpg">
+                    </li>
+                    <li>
+                        <img src="images/p3.jpg">
+                    </li>
+                </ul>
+            </div>
+            <div class="p-final">
+                <p>优粮编码：888888</p>
+                <p class="code">商品二维码</p>
+            </div>
+        </div>
+        <div class="p-select">
+            <div class="p-name">
+                <h3>十月稻田&nbsp;2015年新米&nbsp;五常长粒香大米5kg</h3>
+                <p class="p-active">优粮城粮油节，满99元立减20元，活动时间截止到5月24号！</p><p class="p-src">更多惊喜请点击</p>
+            </div>
+            <div class="p-price">
+                <span class="p-left">
+                    <p>优粮价：<b>￥39.00</b></p>
+                    <p>促销信息：<b>满100减10.00</b><b class="info">详情></b></p>
+                </span>
+                <span class="p-right">
+                    <p>累计评价</p>
+                    <p class="p-amou">1459</p>
+                    <p>库存：789</p>
+                </span>
+            </div>
+            <div class="p-add">
+                <p>配送至：<select>
+                            <option>山东日照</option>
+                           </select>
+                    有货，支持货到付款单笔订单不满90元收运费5元
+                </p>
+                <p>服务：由&nbsp;<b>优粮城提供服务</b>&nbsp;从&nbsp;山东日照&nbsp;发送，并提供售后服务</p>
+            </div>
+            <div class="p-type">
+                <div class="t-left">
+                    <p>选择类型：</p>
+                </div>
+                <div class="t-right">
+                    <div id="tp" class="t-selected">五常长粒香大米5kg</div>
+                    <div id="tp">2015年&nbsp;五常长粒香大米5kg</div>
+                    <div id="tp">东北大米5kg</div>
+                </div>
+            </div>
+            <div class="p-bottom">
+                <div class="p-numm">
+                    <span class="total">1</span>
+                    <span class="add">+</span>
+                    <span class="min">-</span>
+                </div>
+                <div class="p-cart">
+                    <i class="iconfont">&#xe602;</i>加入购物车
+                </div>
+                <div class="p-buy">
+                    悠闲购
+                </div>
+                <div class="tip">
+                    温馨提示：支持7天无条件退货
+                </div>
+            </div>
+        </div>
+        <div class="p-rig">
+            <img src="images/mer.jpg">
+            <div class="p-mer">
+                <p>商品名称</p>
+                <p>综合评分：9.8</p>
+                <p>公司名称：海纳鲜农产品</p>
+                <p>所在地：山东日照</p>
+                <p>客服电话:400-4567-587</p>
+            </div>
+            <div class="p-button">
+                <div class="b-left">进入店铺</div>
+                <div class="b-right">加入定制</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pro-bottom">
+        <div class="pro-left">
+            <div class="pro-top">
+                <h3>店内搜索</h3>
+                <p>关键字：<input class="keyword"></p>
+                <p>价&nbsp;&nbsp;格<input class="price">到<input class="price"></p>
+                <p class="pro-final">搜索</p>
+            </div>
+            <div class="pro-top">
+                <h3>火热销售</h3>
+                <img src="images/rice.jpg">
+                <p>十月稻田小米2015年新米五常小米5kg</p>
+                <p class="prix">￥25.00</p>
+            </div>
+        </div>
+        <div class="pro-right" id="float">
+            <div class="pro-title">
+                <ul>
+                    <li id="pro-tbl" class="active">商品介绍</li>
+                    <li id="pro-tbl">商品参数</li>
+                    <li id="pro-tbl">商品评价(1100)</li>
+                </ul>
+            </div>
+            <p>微信扫码购买首单送50</p>
+            <div class="addcart">
+                加入购物车
+            </div>
+        </div>
+        <div class="pro-tab" id="pro-tab" style="display:block;" >
+        <div class="para">
+            <p>商品名称：十月稻田大米</p>
+            <p>优粮编号：888888</p>
+            <p>品牌：十月稻田</p>
+            <p>类型：大米</p>
+            <p>商品重量：5kg</p>
+            <p>商品产地：辽宁</p>
+            <p>商家时间：2015/05/29&nbsp;18:00</p>
+            <span>更多参数></span>
+        </div>
+        <div class="pro-img">
+            <img src="images/p9.jpg">
+        </div>
+        </div>
+        <div class="pro-tab" id="pro-tab">
+        <div class="pro-para">
+            <table class="t-tab">
+                <tr><td colspan="4" class="t-tit">主体</td></tr>
+                <tr class="t-r">
+                    <td class="t-small">品牌</td>
+                    <td class="t-big">十月稻田</td>
+                    <td class="t-small">配料</td>
+                    <td class="t-big t-fin">粳米</td>
+                </tr>
+                <tr style="background: #FAFAFA;" class="t-r">
+                    <td class="t-small">品牌</td>
+                    <td class="t-big">十月稻田</td>
+                    <td class="t-small">配料</td>
+                    <td class="t-big t-fin">粳米</td>
+                </tr>
+                <tr class="t-r">
+                    <td class="t-small">品牌</td>
+                    <td class="t-big">十月稻田</td>
+                    <td class="t-small">配料</td>
+                    <td class="t-big t-fin">粳米</td>
+                </tr>
+                <tr style="background: #FAFAFA;" class="t-r">
+                    <td class="t-small">品牌</td>
+                    <td class="t-big">十月稻田</td>
+                    <td class="t-small">配料</td>
+                    <td class="t-big t-fin">粳米</td>
+                </tr>
+            </table>
+        </div>
+        <div class="pro-img">
+            <img src="images/p9.jpg">
+        </div>
+        </div>
+</div>
+<!--底部-->
+<div class="bottom">
+    <ul>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/39.png">
+                </div>
+                <p>食品安全有保障</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/40.png">
+                </div>
+                <p>有机农场鲜蔬直供</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/41.png">
+                </div>
+                <p>先验货后付款</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/42.png">
+                </div>
+                <p>支持多种购物卡</p>
+            </div>
+        </li>
+        <li class="b-li">
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/43.png">
+                </div>
+                <p class="b-bottom">400-898-9797</p>
+                <p class="b-time">周一至周五：08:00-20:00</p>
+                <p class="b-time">双休及节日：09:00-19:00</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="foot">
+    <ul class="u-father">
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-final">
+            <p class="l-top">关注优粮我卖网</p>
+            <img src="images/code.jpg">
+            <p class="l-btm">快速了解活动</p>
+        </li>
+    </ul>
+</div>
+<div class="footbar">
+    <div class="f-cen">
+        <ul>
+            <li>关于我们</li>
+            <li>联系我们</li>
+            <li>服务条款</li>
+            <li>商家入驻</li>
+            <li>友情链接</li>
+            <li>帮助中心</li>
+            <li>优粮城</li>
+            <li class="f-l">企业员工内购</li>
+        </ul>
+        <p>日照优粮城电子商务有限公司</p>
+    </div>
+</div>
+<div class="blank"></div>
+</body>
+</html>
+

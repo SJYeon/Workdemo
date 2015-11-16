@@ -1,0 +1,27 @@
+@charset ("utf-8");
+.order-top{width: 1140px;margin: 0 auto;height: 140px;}
+.order-top .logo{width: 200px;margin: 20px 0;float: left;height: 100px;}
+.order-top .top-tit{width: 160px;height: 80px;line-height: 80px;text-align: center;font-size: 22px;font-weight: bolder;color: #000;float: left;margin-top: 50px;}
+.order-id{width: 1140px;margin: 0 auto;height: 60px;padding: 10px 0;border-top: 1px solid #44af36;border-bottom: 1px solid #44af36;}
+.order-id h3{height: 30px;line-height: 30px;font-weight: bolder;color: #000;}
+.order-id .left{height: 30px;line-height: 30px;display: block;float: left;}
+.order-id .left b{color: #de0000;}
+.order-id .right{height: 30px;line-height: 30px;color: #23abec;margin-left: 150px;display: block;float: left;}
+.order-inf{height: 60px;width: 1140px;margin: 0 auto;display: none;}
+.order-inf .inf-addr{height: 25px;line-height: 25px;float: left;margin-right: 10px;}
+.order-inf .inf-user{height: 25px;line-height: 25px;}
+.order-inf .inf-proname{height: 25px;line-height: 25px;}
+.pay-mode{width: 1100px;margin: 0 auto;height: 380px;border-bottom: 1px solid #ccc;padding: 20px;}
+.pay-mode .pay-center{height: 280px;}
+.pay-mode .pay-center .pay-head{height: 38px;border-bottom: 1px solid  #44af36;}
+.pay-mode .pay-center .pay-head li{margin-right: 5px;line-height: 38px;float: left;border: 1px solid #44af36;color: #44af36;width: 100px;text-align: center;font-weight: bolder;}
+.pay-mode .pay-center .pay-head .active{background: #44af36;color: #fff;} 
+.pay-mode .pay-center .pay-head .pay-acc{float: right;line-height: 38px;}
+.pay-mode .pay-center .pay-head .pay-acc b{color: #fc6700;}
+.pay-mode .pay-center .pay-cont{height: 240px;border: 1px solid #44af36;}
+.pay-mode .pay-center .pay-cont .bank-list{width: 800px;padding: 45px 149px;height: 150px;}
+.pay-mode .pay-center .pay-cont .bank-list li{float: left;line-height: 40px;border: 1px solid #ccc;width: 188px;margin-right: 6px;height: 40px;margin-bottom: 6px;}
+.pay-mode .pay-bottom{height: 35px;padding: 20px 120px;}
+.pay-mode .pay-bottom .pay-now{line-height: 35px;height: 35px;background: #44af36;color: #fff;width: 120px;text-align: center;font-weight: bolder;margin-right: 15px;float: left;font-size: 15px;}
+.pay-mode .pay-bottom p{line-height: 35px;color: #eb6100;font-weight: bolder;height: 35px;}
+

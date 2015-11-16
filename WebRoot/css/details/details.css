@@ -1,0 +1,88 @@
+@charset "utf-8";
+.p-top{width: 1140px;margin: 0 auto;height: 490px;}
+.p-top .p-tit{width: 100%;height: 50px;  letter-spacing: 2px;}
+.p-top .p-tit h3{height: 45px;line-height: 45px;width: 90px;float: left;padding-left: 20px;font-size: 16px;}
+.p-top .p-tit p{  display: block;  float: left;  height: 30px;  line-height: 30px;  padding-top: 10px;}
+.p-top .p-info{width: 100%;height: 440px;}
+.p-top .p-info .p-img{width: 355px;float: left;}
+.p-top .p-info .p-img .p-top{width: 100%;height: 250px;display: none;}
+.p-top .p-info .p-img .p-middle{width: 100%;height: 60px;margin-top: 12px;}
+.p-top .p-info .p-img .p-middle li{width: 88px;float: left;}
+.p-top .p-info .p-img .p-final{width: 100%;height: 40px;}
+.p-top .p-info .p-img .p-final p{height: 35px;line-height: 35px;display: block;float: left;width: 165px;}
+.p-top .p-info .p-img .p-final .code{color: #22abeb;}
+.p-top .p-info .p-select{width: 560px;float: left;margin-left: 15px;}
+.p-top .p-info .p-select .p-name{width: 100%;height: 60px;color: #000;}
+.p-top .p-info .p-select .p-name h3{font-weight: bolder;height: 30px;line-height: 30px;}
+.p-top .p-info .p-select .p-name p{color: #e01111;height: 20px;line-height: 20px;}
+.p-top .p-info .p-select .p-name a{margin-left: 15px;}
+.p-top .p-info .p-select .p-name .p-src{display: block;float: left;margin-left: 15px;color: #12a6ea;border-bottom: 1px solid #12a6ea;}
+.p-top .p-info .p-select .p-name .p-active{display: block;float: left;}
+.p-top .p-info .p-select .p-price{width: 100%;height: 65px;border: 1px dashed #44af36;}
+.p-top .p-info .p-select .p-price .p-left{width: 445px;  padding-left: 15px;  display: block;float: left;}
+.p-top .p-info .p-select .p-price .p-left p{height: 30px;line-height: 30px;}
+.p-top .p-info .p-select .p-price .p-left b{color: #e01111;}
+.p-top .p-info .p-select .p-price .p-left .info{color: #12a6ea;margin-left: 15px;}
+.p-top .p-info .p-select .p-price .p-right{display: block;float: left;height: 45px;margin-top: 10px;margin-bottom: 10px;border-left: 1px solid #ccc;padding-left: 15px;}
+.p-top .p-info .p-select .p-price .p-right p{height: 15px;line-height: 15px;}
+.p-top .p-info .p-select .p-price .p-right .p-amou{color: #12a6ea;}
+.p-top .p-info .p-select .p-add{width: 100%;height: 65px;border-bottom: 1px dashed #44af36;color: #000;}
+.p-top .p-info .p-select .p-add p{height: 30px;line-height: 30px;}
+.p-top .p-info .p-select .p-add b{color: #12a6ea;}
+.p-top .p-info .p-select .p-add select{color: #44af36;}
+.p-top .p-info .p-select .p-type{width: 100%;height: 150px;}
+.p-top .p-info .p-select .p-type .t-left{width: 70px;float: left;height: 150px;}
+.p-top .p-info .p-select .p-type .t-left p{height: 25px;line-height: 25px;padding-left: 10px;padding-top: 15px;}
+.p-top .p-info .p-select .p-type .t-right{height: 150px;float: left;}
+.p-top .p-info .p-select .p-type .t-right div{float: left;height: 30px;line-height: 30px;border: 1px solid #ccc;margin:10px;}
+.p-top .p-info .p-select .p-type .t-right .t-selected{border: 1px solid #44af36;color: #44af36;}
+.p-top .p-info .p-select .p-bottom{width: 100%;height: 80px;}
+.p-top .p-info .p-select .p-bottom .p-numm{width: 61px;height: 40px;float: left;}
+.p-top .p-info .p-select .p-bottom .p-numm .total{border: 1px solid #44af36;width: 40px;height: 40px;display: block;text-align: center;font-size: 20px;line-height: 40px;float: left;}
+.p-top .p-info .p-select .p-bottom .p-numm .add{display: block;  float: left;  width: 18px;  height: 19px;  line-height: 19px;  text-align: center;font-size: 16px;border-top: 1px solid #44af36;border-right: 1px solid #44af36;}
+.p-top .p-info .p-select .p-bottom .p-numm .min{display: block;  float: left;  width: 18px;  height: 20px;  line-height: 20px;  text-align: center;font-size: 16px;border-top: 1px solid #44af36;border-right: 1px solid #44af36;border-bottom: 1px solid #44af36;}
+.p-top .p-info .p-select .p-bottom .p-cart{width: 140px;height: 42px;color: #fff;background: #44af36;float: left;margin-left: 10px;line-height: 42px;font-size: 16px;}
+.p-top .p-info .p-select .p-bottom .p-cart i{font-size: 30px;padding-left: 10px;padding-right: 10px;}
+.p-top .p-info .p-select .p-bottom .p-buy{float: left;height: 42px;line-height: 42px;background: #eb6100;color: #fff;font-size: 16px;font-weight: bolder;width: 90px;text-align: center;margin-left: 10px;margin-right: 200px;}
+.p-top .p-info .p-select .p-bottom .tip{width: 200px;height: 50px;line-height: 50px;float: left;}
+.p-top .p-info .p-rig{width: 170px;height: 65px;float: left;margin-left: 38px;text-align: center;padding-top: 10px;}
+.p-top .p-info .p-rig img{width: 80px;}
+.p-top .p-info .p-rig .p-mer{text-align: left;border-top: 1px dashed #44af36;border-bottom: 1px dashed #44af36;}
+.p-top .p-info .p-rig .p-mer p{height: 20px;line-height: 20px;}
+.p-top .p-info .p-rig .p-button{width: 100%;height: 40px;margin: 10px;}
+.p-top .p-info .p-rig .p-button .b-left{border:1px solid #44af36;width: 70px;float: left;height: 20px;line-height: 20px;margin-right: 15px;}
+.p-top .p-info .p-rig .p-button .b-right{border:1px solid #44af36;width: 70px;float: left;height: 20px;line-height: 20px;}
+.pro-bottom{width: 1140px;margin: 0 auto;min-height: 1000px;border-top: 1px dashed #44af36;}
+.pro-bottom .pro-left{width: 215px;float: left;}
+.pro-bottom .pro-left .pro-top{min-height: 140px;border: 1px solid #44af36;margin-top: 30px;}
+.pro-bottom .pro-left .pro-top h3{height: 30px;line-height: 30px;text-align: center;border-bottom: 1px solid #44af36;font-size: 15px;color: #44af36;}
+.pro-bottom .pro-left .pro-top p{padding:10px 15px;}
+.pro-bottom .pro-left .pro-top .keyword{width: 120px;}
+.pro-bottom .pro-left .pro-top .price{width: 52px;}
+.pro-bottom .pro-left .pro-top .pro-final{float: right;border: 1px solid #44af36;padding: 0px;line-height: 20px;margin-right: 20px;width: 50px;text-align: center;}
+.pro-bottom .pro-left .pro-top .recom{padding-left: 15px;height: 35px;border-bottom: 1px dashed #44af36;line-height: 35px;}
+.pro-bottom .pro-left .pro-top .recom-bot{padding-left: 15px;border-bottom: 0px;height: 35px;line-height: 35px;}
+.pro-bottom .pro-left .pro-top img{padding:15px;}
+.pro-bottom .pro-left .pro-top .prix{text-align: right;color: #e22222;}
+.pro-bottom .pro-right{width: 715px;margin-left: 15px;float: left;border-bottom: 2px solid #44af36;position: absolute;  left: 357px;}
+.pro-bottom .pro-right .pro-title{width: 320px;margin-top: 10px;height: 40px;float: left;}
+.pro-bottom .pro-right ul{width: 100%;height: 40px;}
+.pro-bottom .pro-right li{font-weight: bolder;float: left;width: 100px;height: 40px;line-height: 40px;margin-right: 2px;border-left: 1px solid #44af36;border-top: 1px solid #44af36;border-right: 1px solid #44af36;text-align: center;}
+.pro-bottom .pro-right .active{background: #44af36;color: #fff;}
+.pro-bottom .pro-right p{padding-top: 25px;line-height: 20px;height: 20px;padding-left: 50px;color: #eb6100;display: block;float: left;}
+.pro-bottom .pro-right .addcart{height: 30px;line-height: 30px;background: #eb6100;color: #fff;float: left;width: 100px;text-align: center;font-weight: bolder;margin-top: 10px;margin-left: 20px;}
+.pro-bottom .pro-tab{width: 715px;float: left;display: none;margin-top: 45px;}
+.pro-bottom .pro-tab .para{width: 675px;height: 80px;border:1px dashed #44af36;float: left;margin-left: 15px;padding:10px 20px;margin-top: 10px;}
+.pro-bottom .pro-tab .para p{  display: block;  float: left;  height: 30px;  line-height: 30px;  padding-right: 50px;}
+.pro-bottom .pro-tab .para span{height: 30px;line-height: 30px;color: #12a6ea;  float: right;  width: 400px;  text-align: right;  margin-right: 20px;}
+.pro-bottom .pro-tab .pro-img{width: 716px;margin-top: 10px;float: left;margin-left: 15px;}
+.pro-bottom .pro-tab .pro-para{width: 675px;height: 100px;float: left;margin-left: 15px;padding:10px 20px;margin-top: 10px;}
+.pro-bottom .pro-tab .pro-para .t-tab{width: 675px;border:1px solid #44af36;  background: #FAFAFA;  border-spacing: 0;}
+.pro-bottom .pro-tab .pro-para .t-tab tr{height: 20px;line-height: 20px;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-tit{  text-align: center;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-r{background: #fff;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-r td{border-top: 1px solid #44af36;border-right: 1px solid #44af36;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-r .t-fin{border-right: 0;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-r .t-small{width: 100px;}
+.pro-bottom .pro-tab .pro-para .t-tab .t-r .t-big{width: 200px;}
+

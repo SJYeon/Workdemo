@@ -1,0 +1,35 @@
+@charset "utf-8";
+.mer-info{width: 1140px;margin: 0 auto;}
+.mer-info .info-top{height: 45px;background: #f2f2f2;}
+.mer-info .info-top .right{line-height: 45px;float: right;color: #e10000;text-align: center;width: 135px;}
+.mer-info .info-top .middle{line-height: 45px;float: right;text-align: center;width: 100px;}
+.mer-info .info-top .left{line-height: 45px;float: right;text-align: center;width: 100px;}
+.mer-info .merinfo-head{height: 30px;background-repeat: no-repeat;background-size: 1140px 140px;border-bottom: 2px solid #44af36;padding-top: 110px;}
+.mer-info .merinfo-head li{float: left;height: 30px;line-height: 30px;width: 150px;text-align: center;color: #000;}
+.mer-info .merinfo-head .search{float: right;margin-right: 50px;height: 25px;width: 160px;border: 2px solid #44af36;}
+.mer-info .merinfo-head .search input{border: 0px;height: 23px;line-height: 23px;width: 120px;}
+.mer-info .merinfo-head .search i{color: #d22f7a;font-size: 22px;margin-left: 6px;}
+.mer-info .merinfo-img{height: 440px;}
+.mer-info .merinfo-img img{height: 440px;width: 1140px;}
+.mer-info .merinfo-mer{height: 350px;padding: 15px 0;}
+.mer-info .merinfo-mer li{width: 360px;padding-left: 15px;float: left;}
+.mer-info .merinfo-mer .merimg-top{height: 350px;width: 360px;}
+.mer-info .merinfo-mer .merimg-top img{height: 350px;width: 360px;}
+.mer-info .merinfo-mer .merimg-bott{height: 105px;line-height: 105px;width: 270px;background: #ededed;opacity: 0.8;margin-top: -150px;margin-left: 45px;font-size: 45px;font-weight: bolder;text-align: center;color: #5e5e5e;}
+.mer-info .merinfo-mer .merimg-tip{color: #730c03;}
+.mer-info .merinfo-mer .merimg-tip1{color: #c94737;}
+.mer-info .new-product{height: 35px;}
+.mer-info .new-product .new-left{width: 470px;height: 30px;line-height: 30px;color: #44af36;font-size: 18px;font-weight: bolder;float: left;}
+.mer-info .new-product .new-left span{width: 30px;height: 30px;background: #44af36;border-radius: 30px;display: block;float: right;}
+.mer-info .new-product .new-middle{width:200px;float: left;text-align: center;height: 30px;line-height: 30px;font-size: 16px;color: #000;font-weight: bolder;}
+.mer-info .new-product .new-right{width: 470px;height: 30px;line-height: 30px;color: #44af36;font-size: 18px;font-weight: bolder;float: right;}
+.mer-info .new-product .new-right span{width: 30px;height: 30px;background: #44af36;border-radius: 30px;display: block;float: left;}
+.mer-info .newpro-img{height: 350px;margin-bottom: 10px;}
+.mer-info .newpro-img img{height: 350px;width: 1140px;}
+.mer-info .merpro-list{height: 570px;}
+.mer-info .merpro-list li{width: 240px;height: 285px;float: left;margin-left: 35px;}
+.mer-info .merpro-list img{width: 100%;}
+.mer-info .merpro-list .prolist-name{height: 40px;line-height: 20px;padding-right: 15px;}
+.mer-info .merpro-list .prolist-pri{height: 20px;line-height: 20px;}
+.mer-info .merpro-list .prolist-pri b{color:#ff2433;font-size: 15px;}
+

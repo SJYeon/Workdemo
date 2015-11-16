@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+<head>
+<title>填写核对订单信息</title>
+<meta charset="UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="css/module/module.css">
+<link rel="stylesheet" href="css/reset/reset.css">
+<link rel="stylesheet" type="text/css" href="css/public-index/public-index.css">
+<link rel="stylesheet" type="text/css" href="css/order/order.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+function show(){  //显示隐藏层和弹出层
+      var hideobj=document.getElementById("hidebg");
+      hidebg.style.display="block";  //显示隐藏层
+      document.getElementById("hidebox").style.display="block";  //显示弹出层
+      return true;
+      }
+    function hide(){  //去除隐藏层和弹出层
+      document.getElementById("hidebg").style.display="none";
+      document.getElementById("hidebox").style.display="none";
+    }
+</script>
+</head>
+<body>
+<div class="head">
+    <div class="cont">
+        <div class="fl">
+            <span class="head_tit">
+                欢迎光临优粮我卖网！
+            </span>
+            <a>登录</a>
+            <a>免费注册</a>
+        </div>
+        <div class="fl">
+            <i class="iconfont ico">&#xe60a;</i>
+            <span class="head_tit">送货至：</span>
+            <a>
+                <b>山东青岛</b>
+            </a>
+        </div>
+        <div class="fr">
+            <ul>
+                <a class="my">
+                    <li class="list">我的优粮<i class="iconfont">&#xe607;</i>
+                    <div class="mine">
+                        <div class="m-top">
+                            <div class="m-center">
+                                <img src="images/40.png">
+                                <p>用户名</p>
+                                <p>信息&nbsp;<b>0</b></p>
+                            </div>
+                            <div class="m-final">
+                                <ul>
+                                    <li>待处理订单</li>
+                                    <li>咨询回复</li>
+                                    <li>返修退换货</li>
+                                </ul>
+                                <ul>
+                                    <li>我的关注</li>
+                                    <li>我的账户</li>
+                                    <li>我的订制商城</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="para">最近浏览</p><p class="more">更多<i class="iconfont">&#xe601;</i></p>
+                        <ul>
+                            <li class="ll">
+                                <img src="images/10.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/11.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/12.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/13.jpg">
+                            </li>
+                        </ul>
+                    </div>
+                    </li>
+                </a>
+                <li class="space me"></li>
+                <li class="list"><i class="iconfont ico1">&#xe602;</i><a>购物车</a></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico2">&#xe622;</i><a>手机优粮</a><i class="iconfont">&#xe607;</i>
+                </li>
+                <li class="space"></li>
+                <li class="list"><a>卖家中心</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><a>客户服务</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico3">&#xe627;</i><a>网站导航</a><i class="iconfont">&#xe607;</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="ad">
+    <img src="images/top.jpg">
+</div>
+<div class="order-top">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+    <div class="flow">
+        <ul>
+            <li>
+                <div class="flow-one">
+                    <div class="one-top one-top3">
+
+                    </div>
+                    <div class="one-bot one-bot3">
+                        3
+                    </div>
+                    <div class="one-last one-last3">
+                        3、成功提交订单
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flow-one">
+                    <div class="one-top">
+
+                    </div>
+                    <div class="one-bot">
+                        2
+                    </div>
+                    <div class="one-last">
+                        2、填写核对订单信息
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flow-one">
+                    <div class="one-top one-top2">
+
+                    </div>
+                    <div class="one-bot one-bot2">
+                        1
+                    </div>
+                    <div class="one-last one-last2">
+                        1、我的购物车
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="order-head">
+    填写并核对订单信息
+</div>
+<div class="receiver-info">
+    <h3>收货人信息</h3>
+    <div class="add-receinfo">
+        <ul>
+            <li>
+                <div>
+                    <p class="add-p1"><input type="radio" class="rec-radio">张小马</p>
+                    <p class="add-p2">山东省青岛市崂山区松岭路支行</p>
+                    <p class="add-p3">电话：132-8567-2573</p>
+                    <p class="add-p4" onclick="show()">【修改】</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" class="rec-radio">使用新地址
+            </li>
+        </ul>
+        <div class="rece-button">
+            保存收货人信息
+        </div>
+    </div>
+</div>
+<div class="receiver-info">
+    <h3>选择支付及配送方式</h3>
+    <div class="add-receinfo">
+        <ul>
+            <li>支付方式</li>
+            <li><input type="radio" class="rec-radio">货到付款<b>送货上门后再收款，支持现金、POS机刷卡</b></li>
+            <li><input type="radio" class="rec-radio">在线支付<b>即时到帐，支持绝大数银行借记卡及部分银行信用卡</b></li>
+            <li>配送方式</li>
+            <li><input type="radio" class="rec-radio">优粮快递</li>
+            <li><input type="radio" class="rec-radio">上门自提<b>选择自提网点&nbsp;<select><option>请选择：</option></select>仅限日照地区</b></li>
+        </ul>
+        <div class="rece-button">
+            保存支付及配送信息
+        </div>
+    </div>
+</div>
+<div class="order-tit">
+    <h3>商品信息</h3>
+    <p>返回修改购物车</p>
+</div>
+<div class="order-title">
+    <ul>
+        <li class="tit-l1">商品</li>
+        <li class="tit-l2">优粮价</li>
+        <li class="tit-l3">数量</li>
+        <li class="tit-l4">库存状态</li>
+    </ul>
+</div>
+<div class="order-product">
+    <ul>
+        <li class="product-l1">
+            <div class="product-info">
+                <img src="images/p3.jpg">
+                <h3>十月稻田2015年新米五常长粒香米5kg</h3>
+                <p>优粮编号：8888888</p>
+                <b>7天免费退货</b>
+            </div>
+        </li>
+        <li class="product-price">
+            <p>￥39.00</p>
+        </li>
+        <li class="product-numm">
+            <p>X1</p>
+        </li>
+        <li class="product-stat">
+            <p>有货</p>
+        </li>
+    </ul>
+</div>
+<div class="bill-info">
+    <ul class="bill-u">
+        <li>1件商品,总商品金额：</li>
+        <li>优惠：</li>
+        <li>运费：</li>
+        <li>商品金额：</li>
+    </ul>
+    <ul class="bill-up">
+        <li>￥198.00</li>
+        <li>￥198.00</li>
+        <li>￥198.00</li>
+        <li>￥198.00</li>
+    </ul>
+</div>
+<div class="bill-pay">
+    <div class="pay-num">
+        <p>应付金额：<b>￥198.00</b></p>
+    </div>
+    <div class="pay-button">
+        保存支付及配送信息
+    </div>
+</div>
+<!--底部-->
+<div class="bottom">
+    <ul>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/39.png">
+                </div>
+                <p>食品安全有保障</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/40.png">
+                </div>
+                <p>有机农场鲜蔬直供</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/41.png">
+                </div>
+                <p>先验货后付款</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/42.png">
+                </div>
+                <p>支持多种购物卡</p>
+            </div>
+        </li>
+        <li class="b-li">
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/43.png">
+                </div>
+                <p class="b-bottom">400-898-9797</p>
+                <p class="b-time">周一至周五：08:00-20:00</p>
+                <p class="b-time">双休及节日：09:00-19:00</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="foot">
+    <ul class="u-father">
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-final">
+            <p class="l-top">关注优粮我卖网</p>
+            <img src="images/code.jpg">
+            <p class="l-btm">快速了解活动</p>
+        </li>
+    </ul>
+</div>
+<div class="footbar">
+    <div class="f-cen">
+        <ul>
+            <li>关于我们</li>
+            <li>联系我们</li>
+            <li>服务条款</li>
+            <li>商家入驻</li>
+            <li>友情链接</li>
+            <li>帮助中心</li>
+            <li>优粮城</li>
+            <li class="f-l">企业员工内购</li>
+        </ul>
+        <p>日照优粮城电子商务有限公司</p>
+    </div>
+</div>
+<div class="blank"></div>
+<div>
+    <div class="hidebg" id="hidebg"></div>
+    <div class="hidebox" id="hidebox">
+        <div class="hide-tit">
+            编辑收货地址
+            <span onclick="hide()">x</span>
+        </div>
+        <div class="hide-content">
+            <div class="content-name">
+                <p>收货人：</p>
+                <input value="某某某">
+            </div>
+            <div class="content-addr">
+                <p>所在地区：</p>
+                <select>
+                    <option>山东</option>
+                </select>
+                <select>
+                    <option>青岛市</option>
+                </select>
+                <select>
+                    <option>崂山区</option>
+                </select>
+            </div>
+            <div class="content-info">
+                <p>详细地址：</p>
+                <div>
+                    <p>山东省青岛市崂山区沙子口街道</p>
+                    <input value="银川东路18-2号">
+                </div>
+            </div>
+            <div class="content-pho">
+                <div class="pho-num">
+                    <p>手机号码：</p>
+                    <input vlaue="">
+                </div>
+                <div class="pho-tel">
+                    <p>固定电话：</p>
+                    <input>
+                </div>
+            </div>
+            <div class="hide-butt">
+                保存收货地址
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+<title>私人订制</title>
+<meta charset="UTF-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="css/module/module.css">
+<link rel="stylesheet" href="css/reset/reset.css">
+<link rel="stylesheet" type="text/css" href="css/public-index/public-index.css">
+<link rel="stylesheet" type="text/css" href="css/search/search.css">
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+    function change(){
+        var sp=document.getElementById('hot');
+        var sp1=document.getElementById('pro');
+        var inp=document.getElementById('inp');
+        var inp1=document.getElementById('inp1');
+        inp.style.display="none";
+        inp1.style.display="block";
+        sp1.style.color="#747474";
+        sp1.style.background="#fff";
+        sp.style.color="#fff";
+        sp.style.background="#44af36";
+    }
+    function rechange(){
+        var sp=document.getElementById('hot');
+        var sp1=document.getElementById('pro');
+        var inp=document.getElementById('inp');
+        var inp1=document.getElementById('inp1');
+        inp1.style.display="none";
+        inp.style.display="block";
+        sp.style.color="#747474";
+        sp.style.background="#fff";
+        sp1.style.color="#fff";
+        sp1.style.background="#44af36";
+    }
+    $(function(){
+        window.onload = function()
+        {
+            var $li = $('#tab li');
+            var $tab = $('#all-mer ');
+
+            $li.click(function(){
+                var $this = $(this);
+                var $t = $this.index();
+                $li.removeClass();
+                $this.addClass('active');
+                $tab.css('display','none');
+                $tab.eq($t).css('display','block');
+            })
+        }
+    });
+</script>
+</head>
+<body>
+<div class="head">
+    <div class="cont">
+        <div class="fl">
+            <span class="head_tit">
+                欢迎光临优粮我卖网！
+            </span>
+            <a>登录</a>
+            <a>免费注册</a>
+        </div>
+        <div class="fl">
+            <i class="iconfont ico">&#xe60a;</i>
+            <span class="head_tit">送货至：</span>
+            <a>
+                <b>山东青岛</b>
+            </a>
+        </div>
+        <div class="fr">
+            <ul>
+                <a class="my">
+                    <li class="list">我的优粮<i class="iconfont">&#xe607;</i>
+                    <div class="mine">
+                        <div class="m-top">
+                            <div class="m-center">
+                                <img src="images/40.png">
+                                <p>用户名</p>
+                                <p>信息&nbsp;<b>0</b></p>
+                            </div>
+                            <div class="m-final">
+                                <ul>
+                                    <li>待处理订单</li>
+                                    <li>咨询回复</li>
+                                    <li>返修退换货</li>
+                                </ul>
+                                <ul>
+                                    <li>我的关注</li>
+                                    <li>我的账户</li>
+                                    <li>我的订制商城</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="para">最近浏览</p><p class="more">更多<i class="iconfont">&#xe601;</i></p>
+                        <ul>
+                            <li class="ll">
+                                <img src="images/10.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/11.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/12.jpg">
+                            </li>
+                            <li class="ll">
+                                <img src="images/13.jpg">
+                            </li>
+                        </ul>
+                    </div>
+                    </li>
+                </a>
+                <li class="space me"></li>
+                <li class="list"><i class="iconfont ico1">&#xe602;</i><a>购物车</a></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico2">&#xe622;</i><a>手机优粮</a><i class="iconfont">&#xe607;</i>
+                </li>
+                <li class="space"></li>
+                <li class="list"><a>卖家中心</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><a>客户服务</a><i class="iconfont">&#xe607;</i></li>
+                <li class="space"></li>
+                <li class="list"><i class="iconfont ico3">&#xe627;</i><a>网站导航</a><i class="iconfont">&#xe607;</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="ad">
+    <img src="images/top.jpg">
+</div>
+<div class="search">
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+    <div class="more">
+        更多市场<i id="ico-more" class="iconfont">&#xe607;</i>
+        <div class="hidden">
+            <ul>
+                <li>特色农产品</li>
+                <li>特色农产品</li>
+                <li>特色农产品</li>
+                <li>特色农产品</li>
+                <li>特色农产品</li>
+                <li>特色农产品</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sear">
+        <span class="s-pro" id="pro" onclick="rechange()">热铺</span>
+        <span class="s-active" id="hot" onclick="change()">商品</span>
+        <div class="input" id="inp">
+            <i class="iconfont">&#xe620;</i>
+            <input placeholder="推广商户名称">
+            <span>搜索</span>
+        </div>
+        <div class="inputp" id="inp1">
+            <i class="iconfont">&#xe620;</i>
+            <input placeholder="推广商品名称">
+            <span>搜索</span>
+        </div>
+    </div>
+
+</div>
+<div class="mer-active">
+    <div class="left" style="background:url(images/bg.png);  background-repeat: no-repeat;">
+        <p>优粮推荐</p>
+    </div>
+    <div class="middle">
+        <ul>
+            <li>
+                <div class="pro">
+                    <img src="images/10.jpg">
+                    <div class="cont">
+                        <h3>豪客来茶农直销正品店</h3>
+                        <p><b>主营：</b>日照绿茶&nbsp;日照红茶&nbsp;包邮&nbsp;散装...</p>
+                        <div class="collect">+收藏</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="pro">
+                    <img src="images/11.jpg">
+                    <div class="cont">
+                        <h3>豪客来茶农直销正品店</h3>
+                        <p><b>主营：</b>日照绿茶&nbsp;日照红茶&nbsp;包邮&nbsp;散装...</p>
+                        <div class="collect">+收藏</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="pro">
+                    <img src="images/12.jpg">
+                    <div class="cont">
+                        <h3>豪客来茶农直销正品店</h3>
+                        <p><b>主营：</b>日照绿茶&nbsp;日照红茶&nbsp;包邮&nbsp;散装...</p>
+                        <div class="collect">+收藏</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="right" style="background:url(images/bg.png);  background-repeat: no-repeat;">
+        <p>促销活动</p>
+    </div>
+    <div class="final">
+        <ul>
+            <li>
+                <b>【秒杀】</b>马家沟芹菜
+            </li>
+            <li>
+                <b>【特惠】</b>王哥庄大馒头
+            </li>
+            <li>
+                <b>【秒杀】</b>马家沟芹菜
+            </li>
+            <li>
+                <b>【秒杀】</b>马家沟芹菜
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="mer-middle">
+    <div class="mer-left">
+        <div class="mer-img">
+            <img src="images/3.jpg">
+        </div>
+        <div class="mer-tit">
+            <div class="t-left">
+                <p>排序：</p>
+                <ul id="tab">
+                    <li class="active">销量</li>
+                    <li>好评度</li>
+                    <li>评价数</li>
+                </ul>
+                <p><input type="checkbox">特色商铺</p>
+                <p><input type="checkbox">收藏和购买过</p>
+            </div>
+            <div class="t-right">
+                <p>筛选：</p>
+                <div class="local">
+                    <select>
+                        <option>所在地</option>
+                    </select>
+                </div>
+                <div class="trade">
+                    <select>
+                        <option>行业</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="all-mer" id="all-mer">
+        <div class="mer-list">
+            <div class="mer-info">
+                <img src="images/9.jpg">
+                <div class="i-info">
+                    <h3>豪客来茶农直销正品店</h3>
+                    <p><b>买家：</b>豪客来茶庄</p>
+                    <p class="main"><b>主营：</b>日照绿茶、日照红茶、木耳、枸杞、茶具</p>
+                    <p class="i-bot">总销量：<b>1200</b></p>
+                    <p class="i-bot1">商品数：<b>98</b></p>
+                    <p class="i-final">好评度：<b>4星</b></p>
+                </div>
+            </div>
+            <div class="pro-list">
+                <ul>
+                    <li>
+                        <img src="images/17.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                    <li>
+                        <img src="images/18.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                    <li>
+                        <img src="images/19.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mer-list">
+            <div class="mer-info">
+                <img src="images/9.jpg">
+                <div class="i-info">
+                    <h3>豪客来茶农直销正品店</h3>
+                    <p><b>买家：</b>豪客来茶庄</p>
+                    <p class="main"><b>主营：</b>日照绿茶、日照红茶、木耳、枸杞、茶具</p>
+                    <p class="i-bot">总销量：<b>1200</b></p>
+                    <p class="i-bot1">商品数：<b>98</b></p>
+                    <p class="i-final">好评度：<b>4星</b></p>
+                </div>
+            </div>
+            <div class="pro-list">
+                <ul>
+                    <li>
+                        <img src="images/17.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                    <li>
+                        <img src="images/18.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                    <li>
+                        <img src="images/19.jpg">
+                        <p class="pro-name">日照绿茶</p>
+                        <p class="pro-price">￥385.00</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="sea-input">
+            <p>重要搜索</p>
+            <div class="input">
+                <i class="iconfont">&#xe620;</i>
+                <input placeholder="搜索结果">
+            <span>搜索</span>
+        </div>
+        </div>
+    </div>
+    <div class="mer-right">
+        <div class="mer-head">
+            店家精选
+        </div>
+        <div class="mer-p">
+            <img src="images/rice.jpg">
+            <p class="mer-tit">十月稻田小米2015年新米五常小米5kg</p>
+            <p class="mer-pri">￥25.00</p>
+        </div>
+        <div class="mer-p">
+            <img src="images/rice.jpg">
+            <p class="mer-tit">十月稻田小米2015年新米五常小米5kg</p>
+            <p class="mer-pri">￥25.00</p>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="bottom">
+    <ul>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/39.png">
+                </div>
+                <p>食品安全有保障</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/40.png">
+                </div>
+                <p>有机农场鲜蔬直供</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/41.png">
+                </div>
+                <p>先验货后付款</p>
+            </div>
+        </li>
+        <li>
+            <div class="b-inn">
+                <div class="pho">
+                    <img src="images/42.png">
+                </div>
+                <p>支持多种购物卡</p>
+            </div>
+        </li>
+        <li class="b-li">
+            <div class="b-inn">
+                <div class="pho"> <img src="images/43.png">
+                </div>
+                <p class="b-bottom">400-898-9797</p>
+                <p class="b-time">周一至周五：08:00-20:00</p>
+                <p class="b-time">双休及节日：09:00-19:00</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="foot">
+    <ul class="u-father">
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-father">
+            <ul class="u-son">
+                <li class="l-bigson">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+                <li class="l-son">食品安全</li>
+            </ul>
+        </li>
+        <li class="l-final">
+            <p class="l-top">关注优粮我卖网</p>
+            <img src="images/code.jpg">
+            <p class="l-btm">快速了解活动</p>
+        </li>
+    </ul>
+</div>
+<div class="footbar">
+    <div class="f-cen">
+        <ul>
+            <li>关于我们</li>
+            <li>联系我们</li>
+            <li>服务条款</li>
+            <li>商家入驻</li>
+            <li>友情链接</li>
+            <li>帮助中心</li>
+            <li>优粮城</li>
+            <li class="f-l">企业员工内购</li>
+        </ul>
+        <p>日照优粮城电子商务有限公司</p>
+    </div>
+</div>
+<div class="blank"></div>
+</body>
+</html>
+
