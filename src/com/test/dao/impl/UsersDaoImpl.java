@@ -42,7 +42,7 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
 	}
 
 	@Override
-	public boolean deleteUsersById(int idr) {
+	public boolean deleteUsersById(int id) {
 		// TODO Auto-generated method stub
 		return true;
 	}

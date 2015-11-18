@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.test.basis.ActionContext;
 import com.test.bean.Users;
 import com.test.service.IUsersService;
 /**
@@ -19,6 +20,7 @@ public class UsersAction {
 
 	@Resource(name="usersservice")
 	private IUsersService usersService;
+	
 	/**
 	 * 用户注册方法
 	 * @return success 注册成功; fail 注册失败
@@ -47,18 +49,24 @@ public class UsersAction {
 			ServletActionContext.getRequest().setAttribute("failmessage", "信息错误请重新注册！");
 			return "fail";
 		}
-		
 	}
+	/**
+	 * 用户登陆方法
+	 * @return success 登陆成功;error 登陆失败
+	 */
 	public String login(){
 		if(usersService.login(users)){
+			//登陆成功 将用户手机号添加到session中
 			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
 			return "success";
 		}
 		else{
+			//登陆失败 返回错误信息
 			ServletActionContext.getRequest().setAttribute("loginmessage", "登录错误，请重新登录！");
 			return "error";
 		}
 	}
+
 	public Users getUsers() {
 		return users;
 	}
