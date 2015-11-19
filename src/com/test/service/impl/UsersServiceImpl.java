@@ -24,9 +24,11 @@ public class UsersServiceImpl implements IUsersService {
 		try {
 			// 对密码进行MD5加密
 			users.setPassword(MD5.md5(users.getPassword()));
-			//设置注册时间
+			//设置注册时间, 用户积分， 用户类型，版本号初始化
 			users.setRegistratetime(new Date(System.currentTimeMillis()));
-
+			users.setIntegral(0);
+			users.setUserclass("ordinary");
+			users.setVersion(0);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
