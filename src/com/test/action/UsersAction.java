@@ -41,6 +41,8 @@ public class UsersAction {
 		//判断是否插入成功
 		if(usersService.register(users) == 1){
 			//插入成功 则将手机号加入session中
+			Users us = usersService.getInfo(users.getPhone());
+			ServletActionContext.getRequest().getSession().setAttribute("userid", us.getId());
 			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
 			return "success";
 		}
@@ -57,6 +59,8 @@ public class UsersAction {
 	public String login(){
 		if(usersService.login(users)){
 			//登陆成功 将用户手机号添加到session中
+			Users us = usersService.getInfo(users.getPhone());
+			ServletActionContext.getRequest().getSession().setAttribute("userid", us.getId());
 			ServletActionContext.getRequest().getSession().setAttribute("phone", users.getPhone());
 			return "success";
 		}
@@ -66,7 +70,21 @@ public class UsersAction {
 			return "error";
 		}
 	}
-
+	/**
+	 * 获得个人信息
+	 * @return  success   ;  error  
+	 */
+	public String getInfo(){
+		String phone = (String) ServletActionContext.getRequest().getSession().getAttribute("phone");
+		users = usersService.getInfo(phone);
+		if(users != null){
+		
+			return "success";
+		}
+		else{
+			return "error";
+		}
+	}
 	public Users getUsers() {
 		return users;
 	}

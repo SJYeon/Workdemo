@@ -84,5 +84,12 @@ public class UsersServiceImpl implements IUsersService {
 		Users users = dao.getUsersById(id);
 		return users;
 	}
+
+	@Override
+	public Users getInfo(String phone) {
+		// TODO Auto-generated method stub
+		Users users = dao.getUsersByPhone(phone);
+		return users;
+	}
 	
 }

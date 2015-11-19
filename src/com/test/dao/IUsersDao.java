@@ -8,4 +8,5 @@ public interface IUsersDao {
 	public abstract Users getUsersById(int id);
 	public abstract Users getUsersByPhone(String phone);
 	public abstract boolean deleteUsersById(int id);
+	
 }

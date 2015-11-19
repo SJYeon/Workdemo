@@ -64,10 +64,14 @@
 				<ref local="sessionFactory"/>
 			</property>
 		</bean>
-		
 		<bean id="usersservice" class="com.test.service.impl.UsersServiceImpl"></bean>
-		
 		<bean id="usersaction" class="com.test.action.UsersAction"></bean>
 		
-	
+		<bean id="cginfodao" class="com.test.dao.impl.ConsigneeinfoDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="cginfoser" class="com.test.service.impl.ConsigneeinfoServiceImpl"></bean>
+		<bean id="cginfoaction" class="com.test.action.ConsigneeinfoAction"></bean>
 	</beans>
