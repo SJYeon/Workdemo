@@ -270,7 +270,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="all-order" id="set">
             <div class="all-order-info"><a href="getinfo?users.phone=${sessionScope.phone }" >个人信息</a></div>
-            <div class="all-order-info"><a href="reg.html"  >收货地址</a></div>
+            <div class="all-order-info"><a href="getcginfobyuserid"  >收货地址</a></div>
             <div class="all-order-info last">账户安全</div>
         </div>
     </div>

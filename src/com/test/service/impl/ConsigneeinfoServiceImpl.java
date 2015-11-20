@@ -2,11 +2,14 @@ package com.test.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import com.test.bean.Consigneeinfo;
 import com.test.dao.IConsigneeinfoDao;
 import com.test.service.IConsigneeinfoService;
 
 public class ConsigneeinfoServiceImpl implements IConsigneeinfoService {
+	@Resource(name="cginfodao")
 	private IConsigneeinfoDao dao;
 	
 	/* (non-Javadoc)
@@ -23,6 +26,7 @@ public class ConsigneeinfoServiceImpl implements IConsigneeinfoService {
 	 */
 	@Override
 	public boolean  addCginfo(Consigneeinfo cginfo){
+		cginfo.setVersion(0);
 		boolean result = dao.addCginfo(cginfo);
 		return result;
 	}

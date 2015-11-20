@@ -17,11 +17,11 @@
 			</action>
 <!-- 收货人信息模块 -->		
 			<action name="getcginfobyuserid" class="cginfoaction" method="getConsigneeinfoByUserid">
-				<result name="success" >/cginfolist.jsp</result>
+				<result name="success" type="dispatcher">/cginfolist.jsp</result>
 				<result name="error" >/fail.jsp</result>
 			</action>
-				<action name="addcginfo" class="cginfoaction" method="addCginfo">
-				<result name="success" >/cginfolist.jsp</result>
+			<action name="addcginfo" class="cginfoaction" method="addCginfo">
+				<result name="success" type="redirect">/getcginfobyuserid</result>
 				<result name="error" >/fail.jsp</result>
 			</action>
 		</package>

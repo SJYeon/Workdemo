@@ -23,8 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
- 	<s:iterator vaule="#cglist" status="st" id="elem">
- 	
+  <a href="addcginfo.jsp">添加收货人信息</a>
+  地址列表：<br>
+
+ 	<s:iterator value="cgList" status="st" >
+ 	 收货人姓名: <s:property value="name" />&nbsp;&nbsp;&nbsp;
+ 	收货人手机:<s:property value="phone"/>&nbsp;&nbsp;&nbsp;
+ 	收货地址:<s:property value="address"/>&nbsp;&nbsp;&nbsp;
  	</s:iterator>
   </body>
 </html>
