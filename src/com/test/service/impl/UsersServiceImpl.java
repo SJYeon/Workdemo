@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -51,7 +52,7 @@ public class UsersServiceImpl implements IUsersService {
 	public void setDao(IUsersDao dao) {
 		this.dao = dao;
 	}
-
+	
 	@Override
 	public boolean login(Users users) {
 		// TODO Auto-generated method stub
@@ -76,7 +77,7 @@ public class UsersServiceImpl implements IUsersService {
 		
 		return false;
 	}
-
+	
 	@Override
 	public Users getUsersById(int id) {
 		// TODO Auto-generated method stub
@@ -84,12 +85,20 @@ public class UsersServiceImpl implements IUsersService {
 		Users users = dao.getUsersById(id);
 		return users;
 	}
-
+	
 	@Override
 	public Users getInfo(String phone) {
 		// TODO Auto-generated method stub
 		Users users = dao.getUsersByPhone(phone);
 		return users;
+	}
+	
+	@Override
+	public List<Users> getUnionMembers(int userid) {
+		// TODO Auto-generated method stub
+		List<Users> list = dao.getUnionMembers(userid);
+		
+		return list;
 	}
 	
 }

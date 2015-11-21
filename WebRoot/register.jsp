@@ -146,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="r-body" id="r-body" style="display:block">
                 <div class="r-body-left">
                     <div class="r-body-left-center">
-                        <form action="">
+                        <form action="register" method="post">
                             <div class="line">
                                 <span class="label">
                                     <b class="star">
@@ -182,6 +182,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     确认密码:
                                 </span>
                                 <input type="password" class="confirm" />
+                            </div>
+                            <div class="line">
+                                <span class="label">
+                                    <b class="star">
+                                    *
+                                    </b>
+                                    邀请人ID:
+                                </span>
+                                <input name="inviterid" class="confirm" />
                             </div>
                             <div class="line">
                                 <span class="label">
@@ -227,7 +236,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </span>
                             </div>
                             <div class="register">
-                                注&nbsp;&nbsp;册
+                            <input type="submit" value="注&nbsp;&nbsp;册"> 
+                                
                             </div>
                         </form>
                     </div>

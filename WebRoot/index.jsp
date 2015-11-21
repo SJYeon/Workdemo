@@ -147,12 +147,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </span>
 
             <s:if test="#session.phone!=null" >
-            欢迎用户${sessionScope.phone}, <a>退出</a>
+            欢迎用户${sessionScope.phone}, <a href="exit">退出</a>
             <a href="./pcenter/personcenter.jsp">个人中心</a>
             </s:if>
             
             <s:else>
-           
             <a href="login.jsp">登录 </a>
             <a href="register.jsp">免费注册</a>
             </s:else>

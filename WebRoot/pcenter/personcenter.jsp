@@ -232,13 +232,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="all-order-info last">我的定制商城</div>
         </div>
         <!--我的账户-->
-        <div class="my-order" onclick="getacctk()">我的账户
+        <div class="my-order" onclick="getacctk()">消费联盟信息
             <span class="downarrow">
                 <i class="iconfont">&#xe607;</i>
             </span>
         </div>
         <div class="all-order" id="acctk">
-            <div class="all-order-info">账户充值</div>
+            <div class="all-order-info"><a href="getunionmembers">消费联盟会员列表</a></div>
             <div class="all-order-info last">账户流水查询</div>
         </div>
         <!--我的积分-->

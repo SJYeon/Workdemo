@@ -58,4 +58,16 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
 		}
 		return users;
 	}
+	@Override
+	public List<Users> getUnionMembers(int userid) {
+		// TODO Auto-generated method stub
+		try{
+			Object[] args = {userid};
+			List<Users> list = this.getHibernateTemplate().find("from com.test.bean.Users u where inviter=?", args);
+			return list;
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package com.test.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
@@ -17,7 +19,8 @@ public class UsersAction {
 	
 	private Users users;
 	private String inviterid;
-
+	private List<Users> unionMembers;
+	
 	@Resource(name="usersservice")
 	private IUsersService usersService;
 	
@@ -78,12 +81,29 @@ public class UsersAction {
 		String phone = (String) ServletActionContext.getRequest().getSession().getAttribute("phone");
 		users = usersService.getInfo(phone);
 		if(users != null){
-		
 			return "success";
 		}
 		else{
 			return "error";
 		}
+	}
+	/**
+	 * 获得联盟会员列表
+	 * @return
+	 */
+	public String getUnionMembersList(){
+		String userid =  ServletActionContext.getRequest().getSession().getAttribute("userid").toString();
+		unionMembers = usersService.getUnionMembers(Integer.parseInt(userid));
+		return "success";
+	}
+	/**
+	 * 用户退出
+	 * @return
+	 */
+	public String exitUsers(){
+		ServletActionContext.getRequest().getSession().removeAttribute("userid");
+		ServletActionContext.getRequest().getSession().removeAttribute("phone");
+		return "success";
 	}
 	public Users getUsers() {
 		return users;
@@ -106,6 +126,12 @@ public class UsersAction {
 	}
 	public void setInviterid(String inviterid) {
 		this.inviterid = inviterid;
+	}
+	public List<Users> getUnionMembers() {
+		return unionMembers;
+	}
+	public void setUnionMembers(List<Users> unionMembers) {
+		this.unionMembers = unionMembers;
 	}
 	
 }
