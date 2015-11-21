@@ -34,4 +34,40 @@ public class ConsigneeinfoDaoImpl extends HibernateDaoSupport implements IConsig
 		}
 		return true;
 	}
+	@Override
+	public boolean deleteCginfo(int id) {
+		// TODO Auto-generated method stub
+		try{
+			Object[] args = {id};
+			List<Consigneeinfo> list = this.getHibernateTemplate().find("from com.test.bean.Consigneeinfo c where id=?", args);
+			Consigneeinfo cginfo = list.get(0);
+			this.getHibernateTemplate().delete(cginfo);
+
+//			this.getHibernateTemplate().delete("from com.test.bean.Consigneeinfo c where id=?", args);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return false;
+		}		
+		return true;
+	}
+	@Override
+	public boolean updateCginfo(Consigneeinfo cginfo) {
+		// TODO Auto-generated method stub
+		try{
+			this.getHibernateTemplate().update(cginfo);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+	@Override
+	public Consigneeinfo getCginfoById(int id) {
+		// TODO Auto-generated method stub
+		Object[] args = {id};
+		List<Consigneeinfo> list = this.getHibernateTemplate().find("from com.test.bean.Consigneeinfo c where id=?", args);
+		Consigneeinfo cginfo = list.get(0);
+		return cginfo;
+	}
+	
 }

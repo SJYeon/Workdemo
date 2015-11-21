@@ -2,6 +2,15 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="users" extends="struts-default">
+	<!-- 登陆验证拦截器 -->
+	<interceptors>
+			<interceptor name="interlogin" class="com.test.intercopter.InterLogin" ></interceptor>
+	</interceptors>
+	<!-- 配置拦截器栈 -->
+	<interceptors-stack name="intlogin">
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="interlogin"/>
+	</interceptors-stack>
 	<!-- 用户模块 -->
 			<action name="register" class="usersaction" method="register">
 				<result name="success" type="redirect">/index.jsp</result>
@@ -12,17 +21,41 @@
 				<result name="error" >/login.jsp</result>
 			</action>
 			<action name="getinfo" class="usersaction" method="getInfo">
-				<result name="success" >/perinfo.jsp</result>
-				<result name="error" >/login.jsp</result>
+				<result name="success" >/pcenter/perinfo.jsp</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
 			</action>
 <!-- 收货人信息模块 -->		
 			<action name="getcginfobyuserid" class="cginfoaction" method="getConsigneeinfoByUserid">
-				<result name="success" type="dispatcher">/cginfolist.jsp</result>
+				<result name="success" type="dispatcher">/cginfo/cginfolist.jsp</result>
 				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
 			</action>
 			<action name="addcginfo" class="cginfoaction" method="addCginfo">
 				<result name="success" type="redirect">/getcginfobyuserid</result>
 				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
+			</action>
+			<action name="deletecginfo" class="cginfoaction" method="deleteCginfo">
+				<result name="success" type="redirect">/getcginfobyuserid</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
+			</action>
+			<action name="updatecginfo" class="cginfoaction" method="updateCginfo">
+				<result name="success" type="redirect">/getcginfobyuserid</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
+			</action>
+			<action name="getcginfobuid" class="cginfoaction" method="getCginfoById">
+				<result name="success" >/cginfo/updatecginfo.jsp</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="intlogin"/>
 			</action>
 		</package>
 </struts>    

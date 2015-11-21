@@ -34,7 +34,7 @@ public class ConsigneeinfoServiceImpl implements IConsigneeinfoService {
 	/* (non-Javadoc)
 	 * @see com.test.service.impl.IConsigneeinfoService#getDao()
 	 */
-	@Override
+
 	public IConsigneeinfoDao getDao() {
 		return dao;
 	}
@@ -42,9 +42,31 @@ public class ConsigneeinfoServiceImpl implements IConsigneeinfoService {
 	/* (non-Javadoc)
 	 * @see com.test.service.impl.IConsigneeinfoService#setDao(com.test.dao.IConsigneeinfoDao)
 	 */
-	@Override
+	
 	public void setDao(IConsigneeinfoDao dao) {
 		this.dao = dao;
+	}
+
+	@Override
+	public boolean deleteCginfo(int id) {
+		// TODO Auto-generated method stub
+		boolean result = dao.deleteCginfo(id);
+		
+		return result;
+	}
+
+	@Override
+	public boolean updateCginfo(Consigneeinfo cginfo) {
+		// TODO Auto-generated method stub
+		boolean result = dao.updateCginfo(cginfo);
+		return result;
+	}
+
+	@Override
+	public Consigneeinfo getConsigneeinfoById(int id) {
+		// TODO Auto-generated method stub
+		Consigneeinfo cginfo = dao.getCginfoById(id);
+		return cginfo;
 	}
 	
 	

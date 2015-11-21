@@ -23,13 +23,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <a href="addcginfo.jsp">添加收货人信息</a>
+  <a href="./cginfo/addcginfo.jsp">添加收货人信息</a>
   地址列表：<br>
-
+  	<s:if test="list.size() == 0">
+  	您还没有收货人信息，请添加！
+  	</s:if>
  	<s:iterator value="cgList" status="st" >
  	 收货人姓名: <s:property value="name" />&nbsp;&nbsp;&nbsp;
  	收货人手机:<s:property value="phone"/>&nbsp;&nbsp;&nbsp;
  	收货地址:<s:property value="address"/>&nbsp;&nbsp;&nbsp;
+ 	<a href="deletecginfo?id=<s:property value="id"/>">删除</a>&nbsp;&nbsp;&nbsp;
+ 	<a href="getcginfobuid?id=<s:property value="id"/>">更新信息</a>
+ 	<br>
  	</s:iterator>
   </body>
 </html>
