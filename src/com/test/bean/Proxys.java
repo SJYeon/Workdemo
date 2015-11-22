@@ -37,6 +37,10 @@ public class Proxys implements java.io.Serializable {
 	private Integer pnum;
 	private String introduction;
 	private Integer version;
+	private String province;
+	private String city;
+	private String area;
+	private String local;
 	private Set<Proxyperson> proxypersons = new HashSet<Proxyperson>(0);
 	private Set<Goods> goodses = new HashSet<Goods>(0);
 
@@ -181,6 +185,38 @@ public class Proxys implements java.io.Serializable {
 
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+	@Column(name = "province", nullable = false, length = 8)
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+	@Column(name = "city", nullable = false, length = 5)
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+	@Column(name = "area", nullable = false, length = 5)
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+	@Column(name = "local", nullable = false, length = 15)
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")
