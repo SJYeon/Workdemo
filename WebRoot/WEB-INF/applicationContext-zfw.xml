@@ -74,6 +74,7 @@
 		</bean>
 		<bean id="cginfoser" class="com.test.service.impl.ConsigneeinfoServiceImpl"></bean>
 		<bean id="cginfoaction" class="com.test.action.ConsigneeinfoAction"></bean>
+	
 	<!-- 订单模块模块bean注入 -->
 		<bean id="ordersdao" class="com.test.dao.impl.OrdersDaoImpl">
 			<property name="sessionFactory">
@@ -81,6 +82,7 @@
 			</property>
 		</bean>
 		<bean id="orderser" class="com.test.service.impl.OrderServiceImpl"></bean>
+	
 	<!-- 代理人模块bean注入 （暂不使用）-->	
 		<bean id="ppdao" class="com.test.dao.impl.ProxypersonDaoImpl">
 			<property name="sessionFactory">
@@ -104,6 +106,7 @@
 			</property>
 		</bean>
 		<bean id="shareser" class="com.test.service.impl.ShareServiceImpl"></bean>
+	
 	<!-- 购物车模块bean注入 -->
 		<bean id="cartdao" class="com.test.dao.impl.ShoppingcartDaoImpl">
 			<property name="sessionFactory">
