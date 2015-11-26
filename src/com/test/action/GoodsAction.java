@@ -19,12 +19,19 @@ public class GoodsAction {
 	// 搜索内容
 	private String searchcont;
 	
+	private int goodsid;
+	private Goods goods;
 	@Resource(name="goodsser")
 	private IGoodsService gser;
 	
 	private Address address;
 	
-
+	
+	public String getGoodsDetails(){
+		
+		
+		return "success";
+	}
 	public String searchGoods(){
 		searchList = gser.searchGoods(searchcont, address);
 		return "success";
@@ -58,6 +65,22 @@ public class GoodsAction {
 	}
 	public void setSearchcont(String searchcont) {
 		this.searchcont = searchcont;
+	}
+
+	public Goods getGoods() {
+		return goods;
+	}
+
+	public void setGoods(Goods goods) {
+		this.goods = goods;
+	}
+
+	public int getGoodsid() {
+		return goodsid;
+	}
+
+	public void setGoodsid(int goodsid) {
+		this.goodsid = goodsid;
 	}
 	
 	

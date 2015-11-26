@@ -18,19 +18,25 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements IGoodsDao {
 		List<Goods> list = null;
 		//province='陕西' and city='西安市' AND area='雁塔区' and `local`='西安电子科技大学老校区' and 
 		try{
-		Object[] args = {address.getProvince(), address.getCity(), address.getArea(),
-				address.getLocal()};
+		Object[] args = {address.getProvince(), address.getCity(), 
+					address.getArea(), address.getLocal(),
+					'%'+cont+'%', '%'+cont+'%', '%'+cont+'%', '%'+cont+'%'};
 
 		list = this.getHibernateTemplate().find("from com.test.bean.Goods g " +
-				"where province=? and city=? and area=? and local=? " +
-	//			"and (goodsname like %?% or desc like %?% " +
-		//		"or smallproperty like %?% or bigproperty like %?%)" +
-				"order by craze desc", args);
+				"where province=? and city=? and area=? and local=? and" +
+				" (goodsname like ? or 'desc' like ? " +
+				"or smallproperty like ? or bigproperty like ?)" , args);
 		
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		return list;
+	}
+
+	@Override
+	public Goods getGoodsDetails(int goodsid) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
