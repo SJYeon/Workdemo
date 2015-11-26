@@ -11,4 +11,5 @@ public interface IGoodsService {
 	 * 商品搜索
 	 */
 	public List<Goods> searchGoods(String cont, Address address);
+	public Goods getGoodsById(int goodsId);
 }

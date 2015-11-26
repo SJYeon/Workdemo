@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     搜索结果：<br>
     <s:iterator value="searchList" status="st" >
-	  <s:if test="goodspicses.size==0 || goodspicses==null">
-	  <a href="#"><img src="./images/1.jpg" height="150px" width="100px"/></a>	
+	  <s:if test="goodspicses.size==0">
+	  <a href="getgoodsdetails?goodsId=<s:property value="id"/>"><img src="./images/1.jpg" height="150px" width="100px"/></a>	
 	  </s:if>
 	  <s:else>
 		  <s:iterator value="goodspicses" status="st1">
@@ -37,6 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </s:iterator>
 	  </s:else>
 	  <br>
+	 
 	  <s:property value="goodsname"/>
 	  <br>
 	  市场价:<s:property value="mallvalue"/>

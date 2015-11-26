@@ -34,8 +34,21 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements IGoodsDao {
 	}
 
 	@Override
-	public Goods getGoodsDetails(int goodsid) {
+	public Goods getGoodsById(int goodsId) {
 		// TODO Auto-generated method stub
+		
+		Object[] args = {goodsId};
+		try{
+			
+			List<Goods> list= this.getHibernateTemplate().find("from com.test.bean.Goods g " +
+					"where id=?", args);
+			if(list.size()>0){
+				return list.get(0);
+			}
+	
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 		return null;
 	}
 	

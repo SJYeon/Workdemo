@@ -21,10 +21,18 @@ public class GoodsServiceImpl implements IGoodsService {
 				
 		return list;
 	}
+	@Override
+	public Goods getGoodsById(int goodsId) {
+		Goods goods = dao.getGoodsById(goodsId);
+		// TODO Auto-generated method stub
+		return goods;
+	}
 	public IGoodsDao getDao() {
 		return dao;
 	}
 	public void setDao(IGoodsDao dao) {
 		this.dao = dao;
 	}
+
+	
 }

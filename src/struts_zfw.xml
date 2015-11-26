@@ -75,6 +75,10 @@
 				<result name="success" >/goods/goodslist.jsp</result>
 				<result name="error" >/fail.jsp</result>
 		</action>
+		<action name="getgoodsdetails" class="goodsaction" method="getGoodsDetails">
+				<result name="success" >/goods/goodsdetails.jsp</result>
+				<result name="error" >/fail.jsp</result>
+		</action>
 		</package>
 	
 </struts>    

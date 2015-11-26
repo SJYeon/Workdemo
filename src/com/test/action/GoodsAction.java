@@ -19,7 +19,7 @@ public class GoodsAction {
 	// 搜索内容
 	private String searchcont;
 	
-	private int goodsid;
+	private int goodsId;
 	private Goods goods;
 	@Resource(name="goodsser")
 	private IGoodsService gser;
@@ -29,7 +29,7 @@ public class GoodsAction {
 	
 	public String getGoodsDetails(){
 		
-		
+		goods = gser.getGoodsById(goodsId);
 		return "success";
 	}
 	public String searchGoods(){
@@ -74,14 +74,11 @@ public class GoodsAction {
 	public void setGoods(Goods goods) {
 		this.goods = goods;
 	}
-
-	public int getGoodsid() {
-		return goodsid;
+	public int getGoodsId() {
+		return goodsId;
 	}
-
-	public void setGoodsid(int goodsid) {
-		this.goodsid = goodsid;
+	public void setGoodsId(int goodsId) {
+		this.goodsId = goodsId;
 	}
-	
 	
 }

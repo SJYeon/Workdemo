@@ -24,6 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+  <s:if test="goods.goodspicses.size==0">
+  	<img src="./images/1.jpg" height="150px" width="100px"/>
+  </s:if>
+  <s:else>
+   <s:iterator value="goods.goodspicses" status="st">
+   	<s:property value="#st.count==1"/>
+   </s:iterator>
+   </s:else>
+   <br>
+   ${goods.goodsname }<br>
+   商场价:${goods.mallvalue }&nbsp;&nbsp;&nbsp;&nbsp;
+ 商城价:${goods.marketvalue }<br>
+ 商品热度:${goods.craze }&nbsp;&nbsp;&nbsp;&nbsp;
+ 商品好评度:${goods.niceinfo }
   </body>
 </html>
