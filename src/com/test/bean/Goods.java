@@ -379,7 +379,7 @@ public class Goods implements java.io.Serializable {
 		this.collectionses = collectionses;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
 	public Set<Goodspics> getGoodspicses() {
 		return this.goodspicses;
 	}

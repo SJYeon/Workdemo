@@ -12,10 +12,10 @@ public class UsersDaoImpl extends HibernateDaoSupport implements IUsersDao {
     /* (non-Javadoc)
 	 * @see com.test.dao.impl.IUsersDao#addUsers(com.test.bean.User)
 	 */
+	
     @Override
 	public int addUsers(Users users){
     	try{    		
-    		
     		this.getHibernateTemplate().save(users);
     		return 1;
     	}
