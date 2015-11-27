@@ -59,7 +59,6 @@
 		</property></bean>
 	<!-- 用户模块bean注入 -->
 		<bean id="usersdao" class="com.test.dao.impl.UsersDaoImpl">
-		
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>
 			</property>
@@ -75,7 +74,7 @@
 		<bean id="cginfoser" class="com.test.service.impl.ConsigneeinfoServiceImpl"></bean>
 		<bean id="cginfoaction" class="com.test.action.ConsigneeinfoAction"></bean>
 	
-	<!-- 订单模块模块bean注入 -->
+	<!-- 订单模块 bean 注入 -->
 		<bean id="ordersdao" class="com.test.dao.impl.OrdersDaoImpl">
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>
@@ -83,7 +82,7 @@
 		</bean>
 		<bean id="ordersser" class="com.test.service.impl.OrderServiceImpl"></bean>
 	
-	<!-- 代理人模块bean注入 （暂不使用）-->	
+	<!-- 代理人模块bean注入 -->	
 		<bean id="ppdao" class="com.test.dao.impl.ProxypersonDaoImpl">
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>
@@ -91,7 +90,7 @@
 		</bean>
 		<bean id="ppser" class="com.test.service.impl.ProxypersonServiceImpl"></bean>
 		
-	<!-- 代理（商家）模块bean注入 -->
+	<!-- 代理（商家/超市）模块bean注入 -->
 		<bean id="proxysdao" class="com.test.dao.impl.ProxysDaoImpl">
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>

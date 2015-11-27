@@ -21,12 +21,12 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements IGoodsDao {
 		Object[] args = {address.getProvince(), address.getCity(), 
 					address.getArea(), address.getLocal(),
 					'%'+cont+'%', '%'+cont+'%', '%'+cont+'%', '%'+cont+'%'};
-
+		
 		list = this.getHibernateTemplate().find("from com.test.bean.Goods g " +
 				"where province=? and city=? and area=? and local=? and" +
 				" (goodsname like ? or 'desc' like ? " +
 				"or smallproperty like ? or bigproperty like ?)" , args);
-		
+	
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}

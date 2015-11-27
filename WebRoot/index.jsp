@@ -232,12 +232,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="img">
         <img src="images/ad.jpg">
     </div>
+
     <div class="sear">
+   
         <span class="s-pro" id="pro" onclick="rechange()">商品</span>
         <span class="s-active" id="hot" onclick="change()">热铺</span>
         <div class="input" id="inp">
             <i class="iconfont">&#xe620;</i>
-            <input placeholder="推广商品名称">
+            <input name="searchcont" placeholder="推广商品名称">
             <span>搜索</span>
         </div>
         <div class="inputp" id="inp1">
@@ -245,11 +247,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <input placeholder="推广商户名称">
             <span>搜索</span>
         </div>
+       
         <span class="sp">海米大虾</span>
         <span class="sp">日照绿茶</span>
         <span class="sp">黑猪肉</span>
         <span class="sp">香菇</span>
+       
     </div>
+ 
     <div class="right">
         <div class="code">
             <span>微信逛优粮</span>

@@ -1,7 +1,9 @@
 package com.test.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -52,9 +54,10 @@ public class Goods implements java.io.Serializable {
 	private String city;
 	private String area;
 	private String local;
+	private Set<Ordergoods> ordergoodses = new HashSet<Ordergoods>(0);
 	private Set<Share> shares = new HashSet<Share>(0);
 	private Set<Collections> collectionses = new HashSet<Collections>(0);
-	private Set<Goodspics> goodspicses = new HashSet<Goodspics>(0);
+	private List<Goodspics> goodspicses = new ArrayList<Goodspics>(0);
 	private Set<Shoppingcart> shoppingcarts = new HashSet<Shoppingcart>(0);
 
 	// Constructors
@@ -68,7 +71,9 @@ public class Goods implements java.io.Serializable {
 			double marketvalue, double mallvalue, double pv, Date releasetime,
 			Integer totalnum, Integer salenum, String smallproperty,
 			String bigproperty, String goodsurl, String paymode, Integer craze,
-			Integer niceinfo, Integer pvscore, double costvalue, Integer version) {
+			Integer niceinfo, Integer pvscore, double costvalue,
+			Integer version, String province, String city, String area,
+			String local) {
 		this.proxys = proxys;
 		this.users = users;
 		this.goodsname = goodsname;
@@ -87,6 +92,10 @@ public class Goods implements java.io.Serializable {
 		this.pvscore = pvscore;
 		this.costvalue = costvalue;
 		this.version = version;
+		this.province = province;
+		this.city = city;
+		this.area = area;
+		this.local = local;
 	}
 
 	/** full constructor */
@@ -96,8 +105,10 @@ public class Goods implements java.io.Serializable {
 			String property, String smallproperty, String bigproperty,
 			String goodsurl, String paymode, Integer craze, String source,
 			Integer niceinfo, Integer pvscore, double costvalue,
-			Integer version, Set<Share> shares, Set<Collections> collectionses,
-			Set<Goodspics> goodspicses, Set<Shoppingcart> shoppingcarts) {
+			Integer version, String province, String city, String area,
+			String local, Set<Ordergoods> ordergoodses, Set<Share> shares,
+			Set<Collections> collectionses, List<Goodspics> goodspicses,
+			Set<Shoppingcart> shoppingcarts) {
 		this.proxys = proxys;
 		this.users = users;
 		this.goodsname = goodsname;
@@ -119,6 +130,11 @@ public class Goods implements java.io.Serializable {
 		this.pvscore = pvscore;
 		this.costvalue = costvalue;
 		this.version = version;
+		this.province = province;
+		this.city = city;
+		this.area = area;
+		this.local = local;
+		this.ordergoodses = ordergoodses;
 		this.shares = shares;
 		this.collectionses = collectionses;
 		this.goodspicses = goodspicses;
@@ -166,7 +182,7 @@ public class Goods implements java.io.Serializable {
 		this.goodsname = goodsname;
 	}
 
-	@Column(name = "marketvalue", nullable = false, precision = 20, scale = 0)
+	@Column(name = "marketvalue", nullable = false, precision = 20)
 	public double getMarketvalue() {
 		return this.marketvalue;
 	}
@@ -175,7 +191,7 @@ public class Goods implements java.io.Serializable {
 		this.marketvalue = marketvalue;
 	}
 
-	@Column(name = "mallvalue", nullable = false, precision = 20, scale = 0)
+	@Column(name = "mallvalue", nullable = false, precision = 20)
 	public double getMallvalue() {
 		return this.mallvalue;
 	}
@@ -328,37 +344,50 @@ public class Goods implements java.io.Serializable {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
+
 	@Column(name = "province", nullable = false, length = 8)
 	public String getProvince() {
-		return province;
+		return this.province;
 	}
 
 	public void setProvince(String province) {
 		this.province = province;
 	}
+
 	@Column(name = "city", nullable = false, length = 5)
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	@Column(name = "area", nullable = false, length = 5)
 	public String getArea() {
-		return area;
+		return this.area;
 	}
 
 	public void setArea(String area) {
 		this.area = area;
 	}
+
 	@Column(name = "local", nullable = false, length = 15)
 	public String getLocal() {
-		return local;
+		return this.local;
 	}
 
 	public void setLocal(String local) {
 		this.local = local;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
+	public Set<Ordergoods> getOrdergoodses() {
+		return this.ordergoodses;
+	}
+
+	public void setOrdergoodses(Set<Ordergoods> ordergoodses) {
+		this.ordergoodses = ordergoodses;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
@@ -380,11 +409,11 @@ public class Goods implements java.io.Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
-	public Set<Goodspics> getGoodspicses() {
+	public List<Goodspics> getGoodspicses() {
 		return this.goodspicses;
 	}
 
-	public void setGoodspicses(Set<Goodspics> goodspicses) {
+	public void setGoodspicses(List<Goodspics> goodspicses) {
 		this.goodspicses = goodspicses;
 	}
 

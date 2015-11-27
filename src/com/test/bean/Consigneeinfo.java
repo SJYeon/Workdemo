@@ -1,5 +1,8 @@
 package com.test.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +29,7 @@ public class Consigneeinfo implements java.io.Serializable {
 	private Integer version;
 	private String name;
 	private String phone;
+	private Set<Orderaddress> orderaddresses = new HashSet<Orderaddress>(0);
 
 	// Constructors
 
@@ -32,7 +37,7 @@ public class Consigneeinfo implements java.io.Serializable {
 	public Consigneeinfo() {
 	}
 
-	/** full constructor */
+	/** minimal constructor */
 	public Consigneeinfo(Users users, String address, Integer version,
 			String name, String phone) {
 		this.users = users;
@@ -40,6 +45,17 @@ public class Consigneeinfo implements java.io.Serializable {
 		this.version = version;
 		this.name = name;
 		this.phone = phone;
+	}
+
+	/** full constructor */
+	public Consigneeinfo(Users users, String address, Integer version,
+			String name, String phone, Set<Orderaddress> orderaddresses) {
+		this.users = users;
+		this.address = address;
+		this.version = version;
+		this.name = name;
+		this.phone = phone;
+		this.orderaddresses = orderaddresses;
 	}
 
 	// Property accessors
@@ -98,6 +114,15 @@ public class Consigneeinfo implements java.io.Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "consigneeinfo")
+	public Set<Orderaddress> getOrderaddresses() {
+		return this.orderaddresses;
+	}
+
+	public void setOrderaddresses(Set<Orderaddress> orderaddresses) {
+		this.orderaddresses = orderaddresses;
 	}
 
 }

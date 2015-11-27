@@ -3,14 +3,19 @@
 
 <hibernate-reverse-engineering>
 
-<table name="user" catalog="worktest" class="User">
+	<table name="user" catalog="worktest" class="User">
 		<primary-key>
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="users" catalog="worktest">
-	<primary-key>
-		
-	</primary-key>
-</table>
+	<table name="users" catalog="worktest">
+		<primary-key>
+
+		</primary-key>
+	</table>
+	<table name="orderaddress" catalog="worktest"></table>
+	<table name="address" catalog="worktest"></table>
+	<table name="orders" catalog="worktest"></table>
+	<table name="orderseller" catalog="worktest"></table>
+	<table name="goods" catalog="worktest"></table>
 </hibernate-reverse-engineering>

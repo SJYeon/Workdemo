@@ -32,6 +32,7 @@ public class GoodsAction {
 		goods = gser.getGoodsById(goodsId);
 		return "success";
 	}
+	
 	public String searchGoods(){
 		searchList = gser.searchGoods(searchcont, address);
 		return "success";

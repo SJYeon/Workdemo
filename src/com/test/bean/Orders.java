@@ -1,6 +1,9 @@
 package com.test.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +12,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +25,8 @@ public class Orders implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private Orderseller orderseller;
+	private Orderaddress orderaddress;
 	private Users usersByPayid;
 	private Users usersByUserid;
 	private Integer goodsnum;
@@ -33,6 +39,7 @@ public class Orders implements java.io.Serializable {
 	private Integer goodsid;
 	private Integer sllerid;
 	private Integer version;
+	private Set<Ordergoods> ordergoodses = new HashSet<Ordergoods>(0);
 
 	// Constructors
 
@@ -40,11 +47,27 @@ public class Orders implements java.io.Serializable {
 	public Orders() {
 	}
 
+	/** minimal constructor */
+	public Orders(Orderseller orderseller, Users usersByUserid,
+			Integer goodsnum, double price, Date ordertime, String state,
+			Integer version) {
+		this.orderseller = orderseller;
+		this.usersByUserid = usersByUserid;
+		this.goodsnum = goodsnum;
+		this.price = price;
+		this.ordertime = ordertime;
+		this.state = state;
+		this.version = version;
+	}
+
 	/** full constructor */
-	public Orders(Users usersByPayid, Users usersByUserid, Integer goodsnum,
+	public Orders(Orderseller orderseller, Orderaddress orderaddress,
+			Users usersByPayid, Users usersByUserid, Integer goodsnum,
 			double price, Date ordertime, String state, double consume,
 			double league, String share, Integer goodsid, Integer sllerid,
-			Integer version) {
+			Integer version, Set<Ordergoods> ordergoodses) {
+		this.orderseller = orderseller;
+		this.orderaddress = orderaddress;
 		this.usersByPayid = usersByPayid;
 		this.usersByUserid = usersByUserid;
 		this.goodsnum = goodsnum;
@@ -57,6 +80,7 @@ public class Orders implements java.io.Serializable {
 		this.goodsid = goodsid;
 		this.sllerid = sllerid;
 		this.version = version;
+		this.ordergoodses = ordergoodses;
 	}
 
 	// Property accessors
@@ -72,7 +96,27 @@ public class Orders implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "payid", nullable = false)
+	@JoinColumn(name = "sellerid", nullable = false)
+	public Orderseller getOrderseller() {
+		return this.orderseller;
+	}
+
+	public void setOrderseller(Orderseller orderseller) {
+		this.orderseller = orderseller;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "adrid")
+	public Orderaddress getOrderaddress() {
+		return this.orderaddress;
+	}
+
+	public void setOrderaddress(Orderaddress orderaddress) {
+		this.orderaddress = orderaddress;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "payid")
 	public Users getUsersByPayid() {
 		return this.usersByPayid;
 	}
@@ -127,7 +171,7 @@ public class Orders implements java.io.Serializable {
 		this.state = state;
 	}
 
-	@Column(name = "consume", nullable = false, precision = 10, scale = 0)
+	@Column(name = "consume", precision = 10, scale = 0)
 	public double getConsume() {
 		return this.consume;
 	}
@@ -136,7 +180,7 @@ public class Orders implements java.io.Serializable {
 		this.consume = consume;
 	}
 
-	@Column(name = "league", nullable = false, precision = 10, scale = 0)
+	@Column(name = "league", precision = 10, scale = 0)
 	public double getLeague() {
 		return this.league;
 	}
@@ -145,7 +189,7 @@ public class Orders implements java.io.Serializable {
 		this.league = league;
 	}
 
-	@Column(name = "share", nullable = false, length = 10)
+	@Column(name = "share", length = 10)
 	public String getShare() {
 		return this.share;
 	}
@@ -154,7 +198,7 @@ public class Orders implements java.io.Serializable {
 		this.share = share;
 	}
 
-	@Column(name = "goodsid", nullable = false)
+	@Column(name = "goodsid")
 	public Integer getGoodsid() {
 		return this.goodsid;
 	}
@@ -163,7 +207,7 @@ public class Orders implements java.io.Serializable {
 		this.goodsid = goodsid;
 	}
 
-	@Column(name = "sllerid", nullable = false)
+	@Column(name = "sllerid")
 	public Integer getSllerid() {
 		return this.sllerid;
 	}
@@ -179,6 +223,15 @@ public class Orders implements java.io.Serializable {
 
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orders")
+	public Set<Ordergoods> getOrdergoodses() {
+		return this.ordergoodses;
+	}
+
+	public void setOrdergoodses(Set<Ordergoods> ordergoodses) {
+		this.ordergoodses = ordergoodses;
 	}
 
 }

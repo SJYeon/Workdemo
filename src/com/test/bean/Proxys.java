@@ -41,6 +41,7 @@ public class Proxys implements java.io.Serializable {
 	private String city;
 	private String area;
 	private String local;
+	private Set<Orderseller> ordersellers = new HashSet<Orderseller>(0);
 	private Set<Proxyperson> proxypersons = new HashSet<Proxyperson>(0);
 	private Set<Goods> goodses = new HashSet<Goods>(0);
 
@@ -52,23 +53,27 @@ public class Proxys implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Proxys(Users users, String proxytype, String proxyregion,
-			Integer roxylv, String teamname, String repersonqq, Integer pnum,
-			Integer version) {
+			Integer roxylv, String teamname, Date registertime,
+			String repersonqq, Integer pnum, Integer version, String province) {
 		this.users = users;
 		this.proxytype = proxytype;
 		this.proxyregion = proxyregion;
 		this.roxylv = roxylv;
 		this.teamname = teamname;
+		this.registertime = registertime;
 		this.repersonqq = repersonqq;
 		this.pnum = pnum;
 		this.version = version;
+		this.province = province;
 	}
 
 	/** full constructor */
 	public Proxys(Users users, String proxytype, String proxyregion,
 			Integer roxylv, String teamname, Date registertime,
 			String repersonqq, Integer pnum, String introduction,
-			Integer version, Set<Proxyperson> proxypersons, Set<Goods> goodses) {
+			Integer version, String province, String city, String area,
+			String local, Set<Orderseller> ordersellers,
+			Set<Proxyperson> proxypersons, Set<Goods> goodses) {
 		this.users = users;
 		this.proxytype = proxytype;
 		this.proxyregion = proxyregion;
@@ -79,6 +84,11 @@ public class Proxys implements java.io.Serializable {
 		this.pnum = pnum;
 		this.introduction = introduction;
 		this.version = version;
+		this.province = province;
+		this.city = city;
+		this.area = area;
+		this.local = local;
+		this.ordersellers = ordersellers;
 		this.proxypersons = proxypersons;
 		this.goodses = goodses;
 	}
@@ -142,7 +152,7 @@ public class Proxys implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "registertime", length = 0)
+	@Column(name = "registertime", nullable = false, length = 0)
 	public Date getRegistertime() {
 		return this.registertime;
 	}
@@ -186,37 +196,50 @@ public class Proxys implements java.io.Serializable {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
+
 	@Column(name = "province", nullable = false, length = 8)
 	public String getProvince() {
-		return province;
+		return this.province;
 	}
 
 	public void setProvince(String province) {
 		this.province = province;
 	}
-	@Column(name = "city", nullable = false, length = 5)
+
+	@Column(name = "city", length = 5)
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public void setCity(String city) {
 		this.city = city;
 	}
-	@Column(name = "area", nullable = false, length = 5)
+
+	@Column(name = "area", length = 5)
 	public String getArea() {
-		return area;
+		return this.area;
 	}
 
 	public void setArea(String area) {
 		this.area = area;
 	}
-	@Column(name = "local", nullable = false, length = 15)
+
+	@Column(name = "local", length = 15)
 	public String getLocal() {
-		return local;
+		return this.local;
 	}
 
 	public void setLocal(String local) {
 		this.local = local;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")
+	public Set<Orderseller> getOrdersellers() {
+		return this.ordersellers;
+	}
+
+	public void setOrdersellers(Set<Orderseller> ordersellers) {
+		this.ordersellers = ordersellers;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")

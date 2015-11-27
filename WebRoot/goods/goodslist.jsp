@@ -31,8 +31,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </s:if>
 	  <s:else>
 		  <s:iterator value="goodspicses" status="st1">
-		  	<s:if test="#st1.count==0">
-		  		<img src=<s:property value="src" />  height="60px" width="45px"/>
+		  
+		  	<s:if test="#st1.count==1">
+		  	
+		  		<img src=<s:property value="src" />  height="150px" width="100px"/>
 		  	</s:if>
 		  </s:iterator>
 	  </s:else>
