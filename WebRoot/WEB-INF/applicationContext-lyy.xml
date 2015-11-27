@@ -14,8 +14,7 @@
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
      http://www.springframework.org/schema/tx   
      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-<import resource="applicationContext-zfw.xml"/>
-<import resource="applicationContext-lyy.xml"/>
+
 	<context:annotation-config />
 	
 	<bean id="dataSource"
@@ -56,23 +55,71 @@
 				<value>com.test.bean.Consigneeinfo</value>
 				<value>com.test.bean.Ads</value>
 				<value>com.test.bean.Orders</value>
-				<value>com.test.bean.Goodspics</value>
-				<value>com.test.bean.Address</value>
-				<value>com.test.bean.Orderaddress</value>
-				<value>com.test.bean.Ordergoods</value>
-				<value>com.test.bean.Orderseller</value></list>
+				<value>com.test.bean.Goodspics</value></list>
 		</property></bean>
-		
+	<!-- 用户模块bean注入 -->
 		<bean id="usersdao" class="com.test.dao.impl.UsersDaoImpl">
 		
 			<property name="sessionFactory">
 				<ref local="sessionFactory"/>
 			</property>
 		</bean>
-		<!--  
 		<bean id="usersservice" class="com.test.service.impl.UsersServiceImpl"></bean>
-		
 		<bean id="usersaction" class="com.test.action.UsersAction"></bean>
-		-->
+	<!-- 收货人信息模块bean注入 -->
+		<bean id="cginfodao" class="com.test.dao.impl.ConsigneeinfoDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="cginfoser" class="com.test.service.impl.ConsigneeinfoServiceImpl"></bean>
+		<bean id="cginfoaction" class="com.test.action.ConsigneeinfoAction"></bean>
 	
+	<!-- 订单模块模块bean注入 -->
+		<bean id="ordersdao" class="com.test.dao.impl.OrdersDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="ordersser" class="com.test.service.impl.OrderServiceImpl"></bean>
+	
+	<!-- 代理人模块bean注入 （暂不使用）-->	
+		<bean id="ppdao" class="com.test.dao.impl.ProxypersonDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="ppser" class="com.test.service.impl.ProxypersonServiceImpl"></bean>
+		
+	<!-- 代理（商家）模块bean注入 -->
+		<bean id="proxysdao" class="com.test.dao.impl.ProxysDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="proxyser" class="com.test.service.impl.ProxyServiceImpl"></bean>
+		
+	<!-- 分享模块bean注入 -->
+		<bean id="sharedao" class="com.test.dao.impl.ShareDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="shareser" class="com.test.service.impl.ShareServiceImpl"></bean>
+	
+	<!-- 购物车模块bean注入 -->
+		<bean id="cartdao" class="com.test.dao.impl.ShoppingcartDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="cartser" class="com.test.service.impl.ShoppingcartServiceImpl"></bean>
+		
+		<bean id="goodsdao" class="com.test.dao.impl.GoodsDaoImpl">
+			<property name="sessionFactory">
+				<ref local="sessionFactory"/>
+			</property>
+		</bean>
+		<bean id="goodsser" class="com.test.service.impl.GoodsServiceImpl"></bean>
+		<bean id="goodsaction" class="com.test.action.GoodsAction"></bean>
 	</beans>
