@@ -34,7 +34,7 @@ public class BuyAction {
 		//查询用户收货人信息列表
 		cglist = cgser.getConsigneeinfoByUserid(userid);
 		//查询购买的商品信息
-		bngoods = gser.getGoodsByIdForOrder(goodsid);
+		bngoods = gser.getGoodsByIdWithProxy(goodsid);
 		
 		return "success";
 	}

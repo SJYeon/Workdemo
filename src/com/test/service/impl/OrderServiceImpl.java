@@ -14,11 +14,14 @@ public class OrderServiceImpl implements IOrdersService {
 	private IOrdersDao dao;
 	@Override
 	public boolean addOrder(Orders order) {
-		// TODO Auto-generated method stub
+//		 TODO Auto-generated method stub
+		
 		Orderseller os = new Orderseller();
 		os.setPid(order.getOrderseller().getPid());
 		os.setPname(order.getOrderseller().getPname());
+		os.setProxys(order.getOrderseller().getProxys());
 		order.setOrderseller(os);
+		
 		//添加订单生成时间 版本号 
 		order.setOrdertime(new Date(System.currentTimeMillis()));
 		order.setVersion(0);

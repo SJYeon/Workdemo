@@ -22,7 +22,7 @@ public interface IGoodsDao {
 	 */
 	public Goods getGoodsById(int goodsId);
 	/**
-	 * 
+	 * 根据商品id查询商品的全部信息 并带有相应的proxy级联查询
 	 * @param goodId
 	 * @return
 	 */

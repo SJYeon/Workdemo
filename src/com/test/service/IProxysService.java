@@ -1,5 +1,10 @@
 package com.test.service;
 
-public interface IProxysService {
+import com.test.bean.Proxys;
 
+
+public interface IProxysService {
+	
+	public Proxys getProxyById(int proid);
+	
 }

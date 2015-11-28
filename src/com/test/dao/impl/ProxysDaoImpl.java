@@ -28,4 +28,15 @@ public class ProxysDaoImpl extends HibernateDaoSupport implements IProxysDao {
 		return null;
 	}
 
+	@Override
+	public Proxys getProxysById(int proid) {
+		// TODO Auto-generated method stub
+		Object[] args = {proid};
+		List<Proxys> list = this.getHibernateTemplate().find("from com.test.bean.Proxys p where p.id=?", args);
+		if(list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
 }
