@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  
 		  	<s:if test="#st1.count==1">
 		  	
-		  		<img src=<s:property value="src" />  height="150px" width="100px"/>
+		<a href="getgoodsdetails?goodsId=<s:property value="id"/>">  <img src=<s:property value="src" />  height="150px" width="100px"/> </a>
 		  	</s:if>
 		  </s:iterator>
 	  </s:else>

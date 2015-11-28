@@ -21,4 +21,10 @@ public interface IGoodsDao {
 	 * @return 返回查询后的商品
 	 */
 	public Goods getGoodsById(int goodsId);
+	/**
+	 * 
+	 * @param goodId
+	 * @return
+	 */
+	public Goods getGoodsByIdForOrder(int goodId);
 }

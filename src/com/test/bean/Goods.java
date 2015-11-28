@@ -153,7 +153,7 @@ public class Goods implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "markeid", nullable = false)
 	public Proxys getProxys() {
 		return this.proxys;

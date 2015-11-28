@@ -10,6 +10,9 @@ public class InterLogin extends AbstractInterceptor {
 	@Override
 	public String intercept(ActionInvocation arg0) throws Exception {
 		// TODO Auto-generated method stub
+		if(ServletActionContext.getRequest().getSession().getAttribute("userid") == null){
+			return "login";
+		}
 		String userid=  ServletActionContext.getRequest().getSession().getAttribute("userid").toString();
 		if(userid.equals("") || userid == null){
 			return "login";

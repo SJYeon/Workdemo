@@ -81,6 +81,7 @@
 			</property>
 		</bean>
 		<bean id="ordersser" class="com.test.service.impl.OrderServiceImpl"></bean>
+		<bean id="ordersaction" class="com.test.action.OrdersAction"></bean>
 	
 	<!-- 代理人模块bean注入 -->	
 		<bean id="ppdao" class="com.test.dao.impl.ProxypersonDaoImpl">
@@ -121,4 +122,6 @@
 		</bean>
 		<bean id="goodsser" class="com.test.service.impl.GoodsServiceImpl"></bean>
 		<bean id="goodsaction" class="com.test.action.GoodsAction"></bean>
+	<!-- 购买模块 -->
+		<bean id="buyaction" class="com.test.action.BuyAction"/>
 	</beans>

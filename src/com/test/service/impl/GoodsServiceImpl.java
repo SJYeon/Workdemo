@@ -33,6 +33,12 @@ public class GoodsServiceImpl implements IGoodsService {
 	public void setDao(IGoodsDao dao) {
 		this.dao = dao;
 	}
+	@Override
+	public Goods getGoodsByIdForOrder(int goodsId) {
+		// TODO Auto-generated method stub
+		Goods goods = dao.getGoodsByIdForOrder(goodsId);
+		return goods;
+	}
 
 	
 }

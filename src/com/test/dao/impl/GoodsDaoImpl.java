@@ -51,5 +51,24 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements IGoodsDao {
 		}
 		return null;
 	}
+
+	@Override
+	public Goods getGoodsByIdForOrder(int goodId) {
+		// TODO Auto-generated method stub
+		Object[] args = {goodId};
+		try{
+			//left join fetch g.proxys
+			List<Goods> list= this.getHibernateTemplate().find("from com.test.bean.Goods  g inner join fetch g.proxys  " +
+					"where id=?", args);
+			if(list.size()>0){
+				return list.get(0);
+			}
+	
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return null;
+
+	}
 	
 }

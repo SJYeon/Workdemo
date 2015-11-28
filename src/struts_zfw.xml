@@ -79,6 +79,14 @@
 				<result name="success" >/goods/goodsdetails.jsp</result>
 				<result name="error" >/fail.jsp</result>
 		</action>
-		</package>
+	<!-- 购买模块 -->
+		<action name="buynow" class="buyaction" method="buyNow">
+				<result name="success" >/buy/buynow.jsp</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="interlogin"/>
+		</action>
+	</package>
 	
 </struts>    

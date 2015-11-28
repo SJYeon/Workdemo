@@ -12,4 +12,5 @@ public interface IGoodsService {
 	 */
 	public List<Goods> searchGoods(String cont, Address address);
 	public Goods getGoodsById(int goodsId);
+	public Goods getGoodsByIdForOrder(int goodsId);
 }
