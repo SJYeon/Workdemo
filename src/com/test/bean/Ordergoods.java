@@ -24,6 +24,7 @@ public class Ordergoods implements java.io.Serializable {
 	private Orders orders;
 	private Integer gid;
 	private String gname;
+	private double gprice;
 	private Integer gsum;
 	private String gpic;
 	// Constructors
@@ -107,6 +108,14 @@ public class Ordergoods implements java.io.Serializable {
 
 	public void setGpic(String gpic) {
 		this.gpic = gpic;
+	}
+	@Column(name = "gprice", length = 10)
+	public double getGprice() {
+		return gprice;
+	}
+
+	public void setGprice(double gprice) {
+		this.gprice = gprice;
 	}
 
 	

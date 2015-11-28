@@ -26,5 +26,5 @@ public interface IGoodsDao {
 	 * @param goodId
 	 * @return
 	 */
-	public Goods getGoodsByIdForOrder(int goodId);
+	public Goods getGoodsByIdWithProxy(int goodId);
 }

@@ -36,7 +36,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	@Override
 	public Goods getGoodsByIdForOrder(int goodsId) {
 		// TODO Auto-generated method stub
-		Goods goods = dao.getGoodsByIdForOrder(goodsId);
+		Goods goods = dao.getGoodsByIdWithProxy(goodsId);
 		return goods;
 	}
 

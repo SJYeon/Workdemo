@@ -1,5 +1,11 @@
 package com.test.dao;
 
-public interface IOrdersDao {
+import com.test.bean.Orders;
 
+public interface IOrdersDao {
+	/**
+	 * 插入单个订单
+	 * @return 返回是否插入成功
+	 */
+	public boolean addorders(Orders order);
 }

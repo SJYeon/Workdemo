@@ -1,5 +1,13 @@
 package com.test.service;
 
-public interface IOrdersService {
+import com.test.bean.Orders;
 
+public interface IOrdersService {
+	/**
+	 * 插入单个订单
+	 * @param order
+	 * @return
+	 */
+	public boolean addOrder(Orders order);
+	
 }

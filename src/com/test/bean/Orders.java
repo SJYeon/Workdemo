@@ -1,7 +1,9 @@
 package com.test.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 /**
  * Orders entity. @author MyEclipse Persistence Tools
@@ -39,7 +43,7 @@ public class Orders implements java.io.Serializable {
 	private Integer goodsid;
 	private Integer sllerid;
 	private Integer version;
-	private Set<Ordergoods> ordergoodses = new HashSet<Ordergoods>(0);
+	private List<Ordergoods> ordergoodses = new ArrayList<Ordergoods>(0);
 
 	// Constructors
 
@@ -65,7 +69,7 @@ public class Orders implements java.io.Serializable {
 			Users usersByPayid, Users usersByUserid, Integer goodsnum,
 			double price, Date ordertime, String state, double consume,
 			double league, String share, Integer goodsid, Integer sllerid,
-			Integer version, Set<Ordergoods> ordergoodses) {
+			Integer version, List<Ordergoods> ordergoodses) {
 		this.orderseller = orderseller;
 		this.orderaddress = orderaddress;
 		this.usersByPayid = usersByPayid;
@@ -96,7 +100,8 @@ public class Orders implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sellerid", nullable = false)
+	@JoinColumn(name = "sellerid")
+	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Orderseller getOrderseller() {
 		return this.orderseller;
 	}
@@ -107,6 +112,7 @@ public class Orders implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "adrid")
+	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Orderaddress getOrderaddress() {
 		return this.orderaddress;
 	}
@@ -135,7 +141,7 @@ public class Orders implements java.io.Serializable {
 		this.usersByUserid = usersByUserid;
 	}
 
-	@Column(name = "goodsnum", nullable = false)
+	@Column(name = "goodsnum" )
 	public Integer getGoodsnum() {
 		return this.goodsnum;
 	}
@@ -144,7 +150,7 @@ public class Orders implements java.io.Serializable {
 		this.goodsnum = goodsnum;
 	}
 
-	@Column(name = "price", nullable = false, precision = 10, scale = 0)
+	@Column(name = "price",  precision = 10, scale = 0)
 	public double getPrice() {
 		return this.price;
 	}
@@ -226,11 +232,11 @@ public class Orders implements java.io.Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orders")
-	public Set<Ordergoods> getOrdergoodses() {
+	public List<Ordergoods> getOrdergoodses() {
 		return this.ordergoodses;
 	}
 
-	public void setOrdergoodses(Set<Ordergoods> ordergoodses) {
+	public void setOrdergoodses(List<Ordergoods> ordergoodses) {
 		this.ordergoodses = ordergoodses;
 	}
 

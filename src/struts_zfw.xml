@@ -87,6 +87,14 @@
 				<interceptor-ref name="defaultStack"/>
 				<interceptor-ref name="interlogin"/>
 		</action>
+	<!-- 订单模块 -->
+		<action name="bnorder" class="ordersaction" method="addOrdersForBuyNow">
+				<result name="success" >/orders/bnorder.jsp</result>
+				<result name="error" >/fail.jsp</result>
+				<result name="login" >/login.jsp</result>
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="interlogin"/>
+		</action>	
 	</package>
 	
 </struts>    

@@ -12,18 +12,28 @@ import com.test.service.IConsigneeinfoService;
 import com.test.service.IGoodsService;
 
 public class BuyAction {
-	
+	//直接购买时的 商品id
 	private int goodsid;
+	// 查询出的商品信息 
 	private Goods bngoods;
+	//直接够买时的 商品数量
 	private int bnsum;
+	//查询用户的收货人信息列表
 	private List<Consigneeinfo> cglist;
 	@Resource(name="cginfoser")
 	private IConsigneeinfoService cgser;
 	@Resource(name="goodsser")
 	private IGoodsService gser;
+	/**
+	 * 点击直接购买 相应函数
+	 * @return
+	 */
 	public String buyNow(){
+		//获取用户id
 		int userid = (Integer)ServletActionContext.getRequest().getSession().getAttribute("userid");
+		//查询用户收货人信息列表
 		cglist = cgser.getConsigneeinfoByUserid(userid);
+		//查询购买的商品信息
 		bngoods = gser.getGoodsByIdForOrder(goodsid);
 		
 		return "success";

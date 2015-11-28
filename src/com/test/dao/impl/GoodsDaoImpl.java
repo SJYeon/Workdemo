@@ -53,7 +53,7 @@ public class GoodsDaoImpl extends HibernateDaoSupport implements IGoodsDao {
 	}
 
 	@Override
-	public Goods getGoodsByIdForOrder(int goodId) {
+	public Goods getGoodsByIdWithProxy(int goodId) {
 		// TODO Auto-generated method stub
 		Object[] args = {goodId};
 		try{

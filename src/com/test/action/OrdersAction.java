@@ -1,13 +1,32 @@
 package com.test.action;
 
+import javax.annotation.Resource;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.test.bean.Orders;
+import com.test.bean.Users;
+import com.test.service.IOrdersService;
+import com.test.service.IUsersService;
 
 public class OrdersAction {
 	private Orders orders;
 	
-	public String addOrders(){
+	@Resource(name="ordersser")
+	private IOrdersService orderSer;
+	
+	@Resource(name="usersservice")
+	private IUsersService userSer;
+	
+	public String addOrdersForBuyNow(){
 		
-		return "success";
+		int userid = (Integer) ServletActionContext.getRequest().getSession().getAttribute("userid");
+		Users user = userSer.getUsersById(userid);
+		
+		orders.setUsersByUserid(user);
+		boolean result = orderSer.addOrder(orders);
+		return result?"success":"error";
+	
 	}
 
 	public Orders getOrders() {
@@ -16,6 +35,22 @@ public class OrdersAction {
 
 	public void setOrders(Orders orders) {
 		this.orders = orders;
+	}
+
+	public IOrdersService getOrderSer() {
+		return orderSer;
+	}
+
+	public void setOrderSer(IOrdersService orderSer) {
+		this.orderSer = orderSer;
+	}
+
+	public IUsersService getUserSer() {
+		return userSer;
+	}
+
+	public void setUserSer(IUsersService userSer) {
+		this.userSer = userSer;
 	}
 	
 }
