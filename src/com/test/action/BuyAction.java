@@ -35,7 +35,7 @@ public class BuyAction {
 		cglist = cgser.getConsigneeinfoByUserid(userid);
 		//查询购买的商品信息
 		bngoods = gser.getGoodsByIdWithProxy(goodsid);
-		
+
 		return "success";
 	}
 	public IConsigneeinfoService getCgser() {

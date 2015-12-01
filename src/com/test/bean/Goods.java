@@ -1,9 +1,7 @@
 package com.test.bean;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,10 +52,7 @@ public class Goods implements java.io.Serializable {
 	private String city;
 	private String area;
 	private String local;
-	private Set<Ordergoods> ordergoodses = new HashSet<Ordergoods>(0);
-	private Set<Share> shares = new HashSet<Share>(0);
-	private Set<Collections> collectionses = new HashSet<Collections>(0);
-	private List<Goodspics> goodspicses = new ArrayList<Goodspics>(0);
+	private Set<Cartgoods> cartgoodses = new HashSet<Cartgoods>(0);
 	private Set<Shoppingcart> shoppingcarts = new HashSet<Shoppingcart>(0);
 
 	// Constructors
@@ -106,8 +101,7 @@ public class Goods implements java.io.Serializable {
 			String goodsurl, String paymode, Integer craze, String source,
 			Integer niceinfo, Integer pvscore, double costvalue,
 			Integer version, String province, String city, String area,
-			String local, Set<Ordergoods> ordergoodses, Set<Share> shares,
-			Set<Collections> collectionses, List<Goodspics> goodspicses,
+			String local, Set<Cartgoods> cartgoodses,
 			Set<Shoppingcart> shoppingcarts) {
 		this.proxys = proxys;
 		this.users = users;
@@ -134,10 +128,7 @@ public class Goods implements java.io.Serializable {
 		this.city = city;
 		this.area = area;
 		this.local = local;
-		this.ordergoodses = ordergoodses;
-		this.shares = shares;
-		this.collectionses = collectionses;
-		this.goodspicses = goodspicses;
+		this.cartgoodses = cartgoodses;
 		this.shoppingcarts = shoppingcarts;
 	}
 
@@ -382,39 +373,12 @@ public class Goods implements java.io.Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Ordergoods> getOrdergoodses() {
-		return this.ordergoodses;
+	public Set<Cartgoods> getCartgoodses() {
+		return this.cartgoodses;
 	}
 
-	public void setOrdergoodses(Set<Ordergoods> ordergoodses) {
-		this.ordergoodses = ordergoodses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Share> getShares() {
-		return this.shares;
-	}
-
-	public void setShares(Set<Share> shares) {
-		this.shares = shares;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Collections> getCollectionses() {
-		return this.collectionses;
-	}
-
-	public void setCollectionses(Set<Collections> collectionses) {
-		this.collectionses = collectionses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
-	public List<Goodspics> getGoodspicses() {
-		return this.goodspicses;
-	}
-
-	public void setGoodspicses(List<Goodspics> goodspicses) {
-		this.goodspicses = goodspicses;
+	public void setCartgoodses(Set<Cartgoods> cartgoodses) {
+		this.cartgoodses = cartgoodses;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")

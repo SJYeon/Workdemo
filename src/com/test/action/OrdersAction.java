@@ -27,8 +27,7 @@ public class OrdersAction {
 		int userid = (Integer) ServletActionContext.getRequest().getSession().getAttribute("userid");
 		Users user = userSer.getUsersById(userid);
 		orders.setUsersByUserid(user);
-//		Proxys proxy = proSer.getProxyById(orders.getOrderseller().getPid());
-//		orders.getOrderseller().setProxys(proxy);
+
 		
 		boolean result = orderSer.addOrder(orders);
 		return result?"success":"error";

@@ -40,6 +40,12 @@ public class Users implements java.io.Serializable {
 	private Integer version;
 	private String local;
 	private Set<Users> userses = new HashSet<Users>(0);
+	private Set<Goods> goodses = new HashSet<Goods>(0);
+	private Set<Proxys> proxyses = new HashSet<Proxys>(0);
+	private Set<Shoppingcart> shoppingcartsForSellerid = new HashSet<Shoppingcart>(
+			0);
+	private Set<Shoppingcart> shoppingcartsForUserid = new HashSet<Shoppingcart>(
+			0);
 
 	// Constructors
 
@@ -69,7 +75,9 @@ public class Users implements java.io.Serializable {
 	public Users(Users users, String phone, String email, String password,
 			Date registratetime, Integer integral, String userclass,
 			String province, String city, String area, Integer version,
-			String local, Set<Users> userses) {
+			String local, Set<Users> userses, Set<Goods> goodses,
+			Set<Proxys> proxyses, Set<Shoppingcart> shoppingcartsForSellerid,
+			Set<Shoppingcart> shoppingcartsForUserid) {
 		this.users = users;
 		this.phone = phone;
 		this.email = email;
@@ -83,6 +91,10 @@ public class Users implements java.io.Serializable {
 		this.version = version;
 		this.local = local;
 		this.userses = userses;
+		this.goodses = goodses;
+		this.proxyses = proxyses;
+		this.shoppingcartsForSellerid = shoppingcartsForSellerid;
+		this.shoppingcartsForUserid = shoppingcartsForUserid;
 	}
 
 	// Property accessors
@@ -214,6 +226,44 @@ public class Users implements java.io.Serializable {
 
 	public void setUserses(Set<Users> userses) {
 		this.userses = userses;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
+	public Set<Goods> getGoodses() {
+		return this.goodses;
+	}
+
+	public void setGoodses(Set<Goods> goodses) {
+		this.goodses = goodses;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
+	public Set<Proxys> getProxyses() {
+		return this.proxyses;
+	}
+
+	public void setProxyses(Set<Proxys> proxyses) {
+		this.proxyses = proxyses;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersBySellerid")
+	public Set<Shoppingcart> getShoppingcartsForSellerid() {
+		return this.shoppingcartsForSellerid;
+	}
+
+	public void setShoppingcartsForSellerid(
+			Set<Shoppingcart> shoppingcartsForSellerid) {
+		this.shoppingcartsForSellerid = shoppingcartsForSellerid;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersByUserid")
+	public Set<Shoppingcart> getShoppingcartsForUserid() {
+		return this.shoppingcartsForUserid;
+	}
+
+	public void setShoppingcartsForUserid(
+			Set<Shoppingcart> shoppingcartsForUserid) {
+		this.shoppingcartsForUserid = shoppingcartsForUserid;
 	}
 
 }

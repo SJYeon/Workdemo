@@ -1,6 +1,9 @@
 package com.test.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +12,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +31,7 @@ public class Shoppingcart implements java.io.Serializable {
 	private Integer count;
 	private Date time;
 	private Integer version;
+	private Set<Cartgoods> cartgoodses = new HashSet<Cartgoods>(0);
 
 	// Constructors
 
@@ -34,15 +39,27 @@ public class Shoppingcart implements java.io.Serializable {
 	public Shoppingcart() {
 	}
 
+	/** minimal constructor */
+	public Shoppingcart(Goods goods, Users usersByUserid, Integer count,
+			Date time, Integer version) {
+		this.goods = goods;
+		this.usersByUserid = usersByUserid;
+		this.count = count;
+		this.time = time;
+		this.version = version;
+	}
+
 	/** full constructor */
 	public Shoppingcart(Goods goods, Users usersBySellerid,
-			Users usersByUserid, Integer count, Date time, Integer version) {
+			Users usersByUserid, Integer count, Date time, Integer version,
+			Set<Cartgoods> cartgoodses) {
 		this.goods = goods;
 		this.usersBySellerid = usersBySellerid;
 		this.usersByUserid = usersByUserid;
 		this.count = count;
 		this.time = time;
 		this.version = version;
+		this.cartgoodses = cartgoodses;
 	}
 
 	// Property accessors
@@ -68,7 +85,7 @@ public class Shoppingcart implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sellerid", nullable = false)
+	@JoinColumn(name = "sellerid")
 	public Users getUsersBySellerid() {
 		return this.usersBySellerid;
 	}
@@ -112,6 +129,15 @@ public class Shoppingcart implements java.io.Serializable {
 
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "shoppingcart")
+	public Set<Cartgoods> getCartgoodses() {
+		return this.cartgoodses;
+	}
+
+	public void setCartgoodses(Set<Cartgoods> cartgoodses) {
+		this.cartgoodses = cartgoodses;
 	}
 
 }

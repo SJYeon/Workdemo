@@ -19,7 +19,6 @@ public class OrderServiceImpl implements IOrdersService {
 		Orderseller os = new Orderseller();
 		os.setPid(order.getOrderseller().getPid());
 		os.setPname(order.getOrderseller().getPname());
-		os.setProxys(order.getOrderseller().getProxys());
 		order.setOrderseller(os);
 		
 		//添加订单生成时间 版本号 
