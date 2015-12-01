@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
 /**
  * Orderseller entity. @author MyEclipse Persistence Tools
  */
@@ -60,7 +58,6 @@ public class Orderseller implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proxyid")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.ALL})
 	public Proxys getProxys() {
 		return this.proxys;
 	}

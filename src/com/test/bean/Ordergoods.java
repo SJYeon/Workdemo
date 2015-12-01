@@ -23,10 +23,11 @@ public class Ordergoods implements java.io.Serializable {
 	private Goods goods;
 	private Orders orders;
 	private Integer gid;
-	private String gname;
 	private double gprice;
+	private String gname;
 	private Integer gsum;
 	private String gpic;
+
 	// Constructors
 
 	/** default constructor */
@@ -34,13 +35,15 @@ public class Ordergoods implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Ordergoods(Goods goods, Orders orders, Integer gid, String gname,
-			Integer gsum) {
+	public Ordergoods(Goods goods, Orders orders, Integer gid, double gprice,
+			String gname, Integer gsum, String gpic) {
 		this.goods = goods;
 		this.orders = orders;
 		this.gid = gid;
+		this.gprice = gprice;
 		this.gname = gname;
 		this.gsum = gsum;
+		this.gpic = gpic;
 	}
 
 	// Property accessors
@@ -84,6 +87,15 @@ public class Ordergoods implements java.io.Serializable {
 		this.gid = gid;
 	}
 
+	@Column(name = "gprice", precision = 10)
+	public double getGprice() {
+		return this.gprice;
+	}
+
+	public void setGprice(double gprice) {
+		this.gprice = gprice;
+	}
+
 	@Column(name = "gname", length = 30)
 	public String getGname() {
 		return this.gname;
@@ -101,23 +113,14 @@ public class Ordergoods implements java.io.Serializable {
 	public void setGsum(Integer gsum) {
 		this.gsum = gsum;
 	}
+
 	@Column(name = "gpic", length = 100)
 	public String getGpic() {
-		return gpic;
+		return this.gpic;
 	}
 
 	public void setGpic(String gpic) {
 		this.gpic = gpic;
 	}
-	@Column(name = "gprice", length = 10)
-	public double getGprice() {
-		return gprice;
-	}
-
-	public void setGprice(double gprice) {
-		this.gprice = gprice;
-	}
-
-	
 
 }

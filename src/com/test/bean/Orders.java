@@ -52,13 +52,11 @@ public class Orders implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Orders(Orderseller orderseller, Users usersByUserid,
-			Integer goodsnum, double price, Date ordertime, String state,
-			Integer version) {
+	public Orders(Orderseller orderseller, Orderaddress orderaddress,
+			Users usersByUserid, Date ordertime, String state, Integer version) {
 		this.orderseller = orderseller;
+		this.orderaddress = orderaddress;
 		this.usersByUserid = usersByUserid;
-		this.goodsnum = goodsnum;
-		this.price = price;
 		this.ordertime = ordertime;
 		this.state = state;
 		this.version = version;
@@ -133,6 +131,7 @@ public class Orders implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userid", nullable = false)
+	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Users getUsersByUserid() {
 		return this.usersByUserid;
 	}
@@ -141,7 +140,7 @@ public class Orders implements java.io.Serializable {
 		this.usersByUserid = usersByUserid;
 	}
 
-	@Column(name = "goodsnum" )
+	@Column(name = "goodsnum")
 	public Integer getGoodsnum() {
 		return this.goodsnum;
 	}
@@ -150,7 +149,7 @@ public class Orders implements java.io.Serializable {
 		this.goodsnum = goodsnum;
 	}
 
-	@Column(name = "price",  precision = 10, scale = 0)
+	@Column(name = "price", precision = 10, scale = 0)
 	public double getPrice() {
 		return this.price;
 	}
@@ -214,6 +213,7 @@ public class Orders implements java.io.Serializable {
 	}
 
 	@Column(name = "sllerid")
+	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Integer getSllerid() {
 		return this.sllerid;
 	}
@@ -231,7 +231,8 @@ public class Orders implements java.io.Serializable {
 		this.version = version;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orders")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "orders")
+	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public List<Ordergoods> getOrdergoodses() {
 		return this.ordergoodses;
 	}
