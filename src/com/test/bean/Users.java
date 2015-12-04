@@ -39,10 +39,8 @@ public class Users implements java.io.Serializable {
 	private String area;
 	private Integer version;
 	private String local;
-	
 	private Set<Users> userses = new HashSet<Users>(0);
 	
-
 	// Constructors
 
 	/** default constructor */
@@ -71,13 +69,9 @@ public class Users implements java.io.Serializable {
 	public Users(Users users, String phone, String email, String password,
 			Date registratetime, Integer integral, String userclass,
 			String province, String city, String area, Integer version,
-			String local, Set<Orders> ordersesForUserid,
-			Set<Orders> ordersesForPayid, Set<Ads> adses, Set<Users> userses,
-			Set<Proxyperson> proxypersons, Set<Share> shares,
-			Set<Collections> collectionses, Set<Consigneeinfo> consigneeinfos,
-			Set<Goods> goodses, Set<Proxys> proxyses,
-			Set<Shoppingcart> shoppingcartsForSellerid,
-			Set<Shoppingcart> shoppingcartsForUserid) {
+			String local, Set<Users> userses,
+			Set<Orderincome> orderincomesForInviterid,
+			Set<Orderincome> orderincomesForSharerid, Set<Operator> operators) {
 		this.users = users;
 		this.phone = phone;
 		this.email = email;
@@ -90,9 +84,9 @@ public class Users implements java.io.Serializable {
 		this.area = area;
 		this.version = version;
 		this.local = local;
-		
 		this.userses = userses;
-			}
+		
+	}
 
 	// Property accessors
 	@Id
@@ -216,8 +210,6 @@ public class Users implements java.io.Serializable {
 		this.local = local;
 	}
 
-
-
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
 	public Set<Users> getUserses() {
 		return this.userses;
@@ -227,5 +219,4 @@ public class Users implements java.io.Serializable {
 		this.userses = userses;
 	}
 
-	
 }

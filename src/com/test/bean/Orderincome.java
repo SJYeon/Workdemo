@@ -2,7 +2,10 @@ package com.test.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,13 +18,13 @@ public class Orderincome implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Integer soid;
+	private Users usersBySharerid;
+	private Operator operatorByBoid;
+	private Users usersByInviterid;
+	private Operator operatorBySoid;
 	private double soincome;
-	private Integer boid;
 	private double boincome;
-	private Integer sharerid;
 	private double shareincome;
-	private Integer inviterid;
 	private double inviterincome;
 
 	// Constructors
@@ -36,17 +39,18 @@ public class Orderincome implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Orderincome(Integer id, Integer soid, double soincome, Integer boid,
-			double boincome, Integer sharerid, double shareincome,
-			Integer inviterid, double inviterincome) {
+	public Orderincome(Integer id, Users usersBySharerid,
+			Operator operatorByBoid, Users usersByInviterid,
+			Operator operatorBySoid, double soincome, double boincome,
+			double shareincome, double inviterincome) {
 		this.id = id;
-		this.soid = soid;
+		this.usersBySharerid = usersBySharerid;
+		this.operatorByBoid = operatorByBoid;
+		this.usersByInviterid = usersByInviterid;
+		this.operatorBySoid = operatorBySoid;
 		this.soincome = soincome;
-		this.boid = boid;
 		this.boincome = boincome;
-		this.sharerid = sharerid;
 		this.shareincome = shareincome;
-		this.inviterid = inviterid;
 		this.inviterincome = inviterincome;
 	}
 
@@ -61,13 +65,44 @@ public class Orderincome implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "soid")
-	public Integer getSoid() {
-		return this.soid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "sharerid")
+	public Users getUsersBySharerid() {
+		return this.usersBySharerid;
 	}
 
-	public void setSoid(Integer soid) {
-		this.soid = soid;
+	public void setUsersBySharerid(Users usersBySharerid) {
+		this.usersBySharerid = usersBySharerid;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "boid")
+	public Operator getOperatorByBoid() {
+		return this.operatorByBoid;
+	}
+
+	public void setOperatorByBoid(Operator operatorByBoid) {
+		this.operatorByBoid = operatorByBoid;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "inviterid")
+	public Users getUsersByInviterid() {
+		return this.usersByInviterid;
+	}
+
+	public void setUsersByInviterid(Users usersByInviterid) {
+		this.usersByInviterid = usersByInviterid;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "soid")
+	public Operator getOperatorBySoid() {
+		return this.operatorBySoid;
+	}
+
+	public void setOperatorBySoid(Operator operatorBySoid) {
+		this.operatorBySoid = operatorBySoid;
 	}
 
 	@Column(name = "soincome", precision = 10)
@@ -79,15 +114,6 @@ public class Orderincome implements java.io.Serializable {
 		this.soincome = soincome;
 	}
 
-	@Column(name = "boid")
-	public Integer getBoid() {
-		return this.boid;
-	}
-
-	public void setBoid(Integer boid) {
-		this.boid = boid;
-	}
-
 	@Column(name = "boincome", precision = 10)
 	public double getBoincome() {
 		return this.boincome;
@@ -97,15 +123,6 @@ public class Orderincome implements java.io.Serializable {
 		this.boincome = boincome;
 	}
 
-	@Column(name = "sharerid")
-	public Integer getSharerid() {
-		return this.sharerid;
-	}
-
-	public void setSharerid(Integer sharerid) {
-		this.sharerid = sharerid;
-	}
-
 	@Column(name = "shareincome", precision = 10)
 	public double getShareincome() {
 		return this.shareincome;
@@ -113,15 +130,6 @@ public class Orderincome implements java.io.Serializable {
 
 	public void setShareincome(double shareincome) {
 		this.shareincome = shareincome;
-	}
-
-	@Column(name = "inviterid")
-	public Integer getInviterid() {
-		return this.inviterid;
-	}
-
-	public void setInviterid(Integer inviterid) {
-		this.inviterid = inviterid;
 	}
 
 	@Column(name = "inviterincome", precision = 10)

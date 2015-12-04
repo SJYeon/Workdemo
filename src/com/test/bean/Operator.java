@@ -1,10 +1,17 @@
 package com.test.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,7 +24,7 @@ public class Operator implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Integer userid;
+	private Users users;
 	private String type;
 	private String province;
 	private String city;
@@ -32,16 +39,18 @@ public class Operator implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Operator(Integer userid, String type, String province, String city,
-			String area, String local, String building) {
-		this.userid = userid;
+	public Operator(Users users, String type, String province, String city,
+			String area, String local, String building,
+			Set<Orderincome> orderincomesForBoid,
+			Set<Orderincome> orderincomesForSoid) {
+		this.users = users;
 		this.type = type;
 		this.province = province;
 		this.city = city;
 		this.area = area;
 		this.local = local;
 		this.building = building;
-	}
+		}
 
 	// Property accessors
 	@Id
@@ -55,13 +64,14 @@ public class Operator implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "userid")
-	public Integer getUserid() {
-		return this.userid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "userid")
+	public Users getUsers() {
+		return this.users;
 	}
 
-	public void setUserid(Integer userid) {
-		this.userid = userid;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	@Column(name = "type", length = 10)
