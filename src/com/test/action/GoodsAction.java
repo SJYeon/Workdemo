@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Component;
+
 import com.test.bean.Address;
 import com.test.bean.Goods;
 import com.test.service.IGoodsService;
@@ -13,6 +15,7 @@ import com.test.service.IGoodsService;
  * @author SJYeon
  *	商品Action
  */
+@Component("prototype")
 public class GoodsAction {
 	// 搜索内容存储列表
 	private List<Goods> searchList;

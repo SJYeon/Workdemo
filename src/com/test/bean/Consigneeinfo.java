@@ -29,8 +29,7 @@ public class Consigneeinfo implements java.io.Serializable {
 	private Integer version;
 	private String name;
 	private String phone;
-	private Set<Orderaddress> orderaddresses = new HashSet<Orderaddress>(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -55,7 +54,7 @@ public class Consigneeinfo implements java.io.Serializable {
 		this.version = version;
 		this.name = name;
 		this.phone = phone;
-		this.orderaddresses = orderaddresses;
+	
 	}
 
 	// Property accessors
@@ -116,13 +115,5 @@ public class Consigneeinfo implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "consigneeinfo")
-	public Set<Orderaddress> getOrderaddresses() {
-		return this.orderaddresses;
-	}
-
-	public void setOrderaddresses(Set<Orderaddress> orderaddresses) {
-		this.orderaddresses = orderaddresses;
-	}
-
+	
 }

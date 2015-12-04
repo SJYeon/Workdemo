@@ -54,13 +54,8 @@ public class Goods implements java.io.Serializable {
 	private String city;
 	private String area;
 	private String local;
-	private Set<Cartgoods> cartgoodses = new HashSet<Cartgoods>(0);
-	private Set<Ordergoods> ordergoodses = new HashSet<Ordergoods>(0);
-	private Set<Share> shares = new HashSet<Share>(0);
-	private Set<Collections> collectionses = new HashSet<Collections>(0);
 	private List<Goodspics> goodspicses = new ArrayList<Goodspics>(0);
-	private Set<Shoppingcart> shoppingcarts = new HashSet<Shoppingcart>(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -136,12 +131,8 @@ public class Goods implements java.io.Serializable {
 		this.city = city;
 		this.area = area;
 		this.local = local;
-		this.cartgoodses = cartgoodses;
-		this.ordergoodses = ordergoodses;
-		this.shares = shares;
-		this.collectionses = collectionses;
 		this.goodspicses = goodspicses;
-		this.shoppingcarts = shoppingcarts;
+		
 	}
 
 	// Property accessors
@@ -384,42 +375,6 @@ public class Goods implements java.io.Serializable {
 		this.local = local;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Cartgoods> getCartgoodses() {
-		return this.cartgoodses;
-	}
-
-	public void setCartgoodses(Set<Cartgoods> cartgoodses) {
-		this.cartgoodses = cartgoodses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Ordergoods> getOrdergoodses() {
-		return this.ordergoodses;
-	}
-
-	public void setOrdergoodses(Set<Ordergoods> ordergoodses) {
-		this.ordergoodses = ordergoodses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Share> getShares() {
-		return this.shares;
-	}
-
-	public void setShares(Set<Share> shares) {
-		this.shares = shares;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Collections> getCollectionses() {
-		return this.collectionses;
-	}
-
-	public void setCollectionses(Set<Collections> collectionses) {
-		this.collectionses = collectionses;
-	}
-
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
 	public List<Goodspics> getGoodspicses() {
 		return this.goodspicses;
@@ -428,14 +383,5 @@ public class Goods implements java.io.Serializable {
 	public void setGoodspicses(List<Goodspics> goodspicses) {
 		this.goodspicses = goodspicses;
 	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
-	public Set<Shoppingcart> getShoppingcarts() {
-		return this.shoppingcarts;
-	}
-
-	public void setShoppingcarts(Set<Shoppingcart> shoppingcarts) {
-		this.shoppingcarts = shoppingcarts;
-	}
-
+	
 }

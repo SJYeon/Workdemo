@@ -1,10 +1,14 @@
 package com.test.service.impl;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.test.bean.OrderAll;
 import com.test.bean.Orderaddress;
+import com.test.bean.Ordergoods;
 import com.test.bean.Orders;
 import com.test.bean.Orderseller;
 import com.test.dao.IOrdersDao;
@@ -13,36 +17,35 @@ import com.test.service.IOrdersService;
 public class OrderServiceImpl implements IOrdersService {
 	@Resource(name="ordersdao")
 	private IOrdersDao dao;
-	@Override
-	public boolean addOrder(Orders order) {
-//		 TODO Auto-generated method stub
-		
-		Orderseller os = new Orderseller();
-		os = order.getOrderseller();
-//		os.setPid(order.getOrderseller().getPid());
-//		os.setPname(order.getOrderseller().getPname());
-		order.setOrderseller(os);
-		
-		Orderaddress oa = new Orderaddress();
-		oa = order.getOrderaddress();
-//		oa.setAddress(order.getOrderaddress().getAddress());
-		order.setOrderaddress(oa);
-		
-		for(int i = 0; i< order.getOrdergoodses().size(); i++){
-			order.getOrdergoodses().get(i).setOrders(order);
-		}
-		//添加订单生成时间 版本号 
-		order.setOrdertime(new Date(System.currentTimeMillis()));
-		order.setVersion(0);
 
-		boolean result = dao.addorders(order);
-		return result;
-	}
 	public IOrdersDao getDao() {
 		return dao;
 	}
 	public void setDao(IOrdersDao dao) {
 		this.dao = dao;
+	}
+	@Override
+	public boolean addOrder(OrderAll orderall) {
+		// TODO Auto-generated method stub
+		/**
+		 * 向订单表中添加 地址信息 和 商户信息
+		 */
+		orderall.getOrder().setOrderaddress(orderall.getOrderaddress());
+		orderall.getOrder().setOrderseller(orderall.getOrderseller());
+		/**
+		 * 设置订单时间与版本
+		 */
+		orderall.getOrder().setOrdertime(new Date(System.currentTimeMillis()));
+		orderall.getOrder().setVersion(0);
+		/**
+		 * 向商品中 加入订单信息
+		 */
+		for(int i = 0; i < orderall.getList().size(); i++){	
+			orderall.getList().get(i).setOrders(orderall.getOrder());
+		}
+		//调用底层操作
+		boolean result = dao.addorder(orderall);
+		return result;
 	}
 	
 }

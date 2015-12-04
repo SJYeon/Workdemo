@@ -1,5 +1,6 @@
 package com.test.service;
 
+import com.test.bean.OrderAll;
 import com.test.bean.Orders;
 
 public interface IOrdersService {
@@ -8,6 +9,5 @@ public interface IOrdersService {
 	 * @param order
 	 * @return
 	 */
-	public boolean addOrder(Orders order);
-	
+	public boolean addOrder(OrderAll orderall);
 }

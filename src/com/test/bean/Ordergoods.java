@@ -15,10 +15,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ordergoods", catalog = "worktest")
-public class Ordergoods implements java.io.Serializable {
+public class Ordergoods implements java.io.Serializable{
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Goods goods;
 	private Orders orders;

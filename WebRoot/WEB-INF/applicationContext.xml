@@ -61,7 +61,9 @@
 				<value>com.test.bean.Orderaddress</value>
 				<value>com.test.bean.Ordergoods</value>
 				<value>com.test.bean.Orderseller</value>
-				<value>com.test.bean.Cartgoods</value></list>
+				<value>com.test.bean.Cartgoods</value>
+				<value>com.test.bean.Operator</value>
+				<value>com.test.bean.Orderincome</value></list>
 		</property></bean>
 		
 		<bean id="usersdao" class="com.test.dao.impl.UsersDaoImpl">

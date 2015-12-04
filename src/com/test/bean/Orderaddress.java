@@ -23,10 +23,13 @@ public class Orderaddress implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Consigneeinfo consigneeinfo;
 	private String address;
-	private Set<Orders> orderses = new HashSet<Orders>(0);
 
 	// Constructors
 
@@ -39,7 +42,7 @@ public class Orderaddress implements java.io.Serializable {
 			Set<Orders> orderses) {
 		this.consigneeinfo = consigneeinfo;
 		this.address = address;
-		this.orderses = orderses;
+		
 	}
 
 	// Property accessors
@@ -73,13 +76,5 @@ public class Orderaddress implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderaddress")
-	public Set<Orders> getOrderses() {
-		return this.orderses;
-	}
-
-	public void setOrderses(Set<Orders> orderses) {
-		this.orderses = orderses;
-	}
-
+	
 }

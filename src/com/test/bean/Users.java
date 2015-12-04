@@ -39,20 +39,9 @@ public class Users implements java.io.Serializable {
 	private String area;
 	private Integer version;
 	private String local;
-	private Set<Orders> ordersesForUserid = new HashSet<Orders>(0);
-	private Set<Orders> ordersesForPayid = new HashSet<Orders>(0);
-	private Set<Ads> adses = new HashSet<Ads>(0);
+	
 	private Set<Users> userses = new HashSet<Users>(0);
-	private Set<Proxyperson> proxypersons = new HashSet<Proxyperson>(0);
-	private Set<Share> shares = new HashSet<Share>(0);
-	private Set<Collections> collectionses = new HashSet<Collections>(0);
-	private Set<Consigneeinfo> consigneeinfos = new HashSet<Consigneeinfo>(0);
-	private Set<Goods> goodses = new HashSet<Goods>(0);
-	private Set<Proxys> proxyses = new HashSet<Proxys>(0);
-	private Set<Shoppingcart> shoppingcartsForSellerid = new HashSet<Shoppingcart>(
-			0);
-	private Set<Shoppingcart> shoppingcartsForUserid = new HashSet<Shoppingcart>(
-			0);
+	
 
 	// Constructors
 
@@ -101,19 +90,9 @@ public class Users implements java.io.Serializable {
 		this.area = area;
 		this.version = version;
 		this.local = local;
-		this.ordersesForUserid = ordersesForUserid;
-		this.ordersesForPayid = ordersesForPayid;
-		this.adses = adses;
+		
 		this.userses = userses;
-		this.proxypersons = proxypersons;
-		this.shares = shares;
-		this.collectionses = collectionses;
-		this.consigneeinfos = consigneeinfos;
-		this.goodses = goodses;
-		this.proxyses = proxyses;
-		this.shoppingcartsForSellerid = shoppingcartsForSellerid;
-		this.shoppingcartsForUserid = shoppingcartsForUserid;
-	}
+			}
 
 	// Property accessors
 	@Id
@@ -237,32 +216,7 @@ public class Users implements java.io.Serializable {
 		this.local = local;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersByUserid")
-	public Set<Orders> getOrdersesForUserid() {
-		return this.ordersesForUserid;
-	}
 
-	public void setOrdersesForUserid(Set<Orders> ordersesForUserid) {
-		this.ordersesForUserid = ordersesForUserid;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersByPayid")
-	public Set<Orders> getOrdersesForPayid() {
-		return this.ordersesForPayid;
-	}
-
-	public void setOrdersesForPayid(Set<Orders> ordersesForPayid) {
-		this.ordersesForPayid = ordersesForPayid;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Ads> getAdses() {
-		return this.adses;
-	}
-
-	public void setAdses(Set<Ads> adses) {
-		this.adses = adses;
-	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
 	public Set<Users> getUserses() {
@@ -273,78 +227,5 @@ public class Users implements java.io.Serializable {
 		this.userses = userses;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Proxyperson> getProxypersons() {
-		return this.proxypersons;
-	}
-
-	public void setProxypersons(Set<Proxyperson> proxypersons) {
-		this.proxypersons = proxypersons;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Share> getShares() {
-		return this.shares;
-	}
-
-	public void setShares(Set<Share> shares) {
-		this.shares = shares;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Collections> getCollectionses() {
-		return this.collectionses;
-	}
-
-	public void setCollectionses(Set<Collections> collectionses) {
-		this.collectionses = collectionses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Consigneeinfo> getConsigneeinfos() {
-		return this.consigneeinfos;
-	}
-
-	public void setConsigneeinfos(Set<Consigneeinfo> consigneeinfos) {
-		this.consigneeinfos = consigneeinfos;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Goods> getGoodses() {
-		return this.goodses;
-	}
-
-	public void setGoodses(Set<Goods> goodses) {
-		this.goodses = goodses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
-	public Set<Proxys> getProxyses() {
-		return this.proxyses;
-	}
-
-	public void setProxyses(Set<Proxys> proxyses) {
-		this.proxyses = proxyses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersBySellerid")
-	public Set<Shoppingcart> getShoppingcartsForSellerid() {
-		return this.shoppingcartsForSellerid;
-	}
-
-	public void setShoppingcartsForSellerid(
-			Set<Shoppingcart> shoppingcartsForSellerid) {
-		this.shoppingcartsForSellerid = shoppingcartsForSellerid;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usersByUserid")
-	public Set<Shoppingcart> getShoppingcartsForUserid() {
-		return this.shoppingcartsForUserid;
-	}
-
-	public void setShoppingcartsForUserid(
-			Set<Shoppingcart> shoppingcartsForUserid) {
-		this.shoppingcartsForUserid = shoppingcartsForUserid;
-	}
-
+	
 }

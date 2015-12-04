@@ -24,10 +24,14 @@ import org.hibernate.annotations.Cascade;
  */
 @Entity
 @Table(name = "orders", catalog = "worktest")
-public class Orders implements java.io.Serializable {
+public class Orders implements java.io.Serializable{
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Orderseller orderseller;
 	private Orderaddress orderaddress;
@@ -88,7 +92,7 @@ public class Orders implements java.io.Serializable {
 	// Property accessors
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
+//	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return this.id;
 	}
@@ -97,9 +101,9 @@ public class Orders implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sellerid")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+//	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Orderseller getOrderseller() {
 		return this.orderseller;
 	}
@@ -110,7 +114,6 @@ public class Orders implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "adrid")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Orderaddress getOrderaddress() {
 		return this.orderaddress;
 	}
@@ -131,7 +134,6 @@ public class Orders implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userid", nullable = false)
-	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Users getUsersByUserid() {
 		return this.usersByUserid;
 	}
@@ -213,7 +215,6 @@ public class Orders implements java.io.Serializable {
 	}
 
 	@Column(name = "sllerid")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public Integer getSllerid() {
 		return this.sllerid;
 	}
@@ -230,15 +231,13 @@ public class Orders implements java.io.Serializable {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
-
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "orders")
-	@Cascade(value = {org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	public List<Ordergoods> getOrdergoodses() {
 		return this.ordergoodses;
 	}
-
 	public void setOrdergoodses(List<Ordergoods> ordergoodses) {
 		this.ordergoodses = ordergoodses;
 	}
-
+	
 }

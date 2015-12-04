@@ -19,4 +19,6 @@
 	<table name="orderseller" catalog="worktest"></table>
 	<table name="goods" catalog="worktest"></table>
 	<table name="cartgoods" catalog="worktest"></table>
+	<table name="operator" catalog="worktest"></table>
+	<table name="orderincome" catalog="worktest"></table>
 </hibernate-reverse-engineering>

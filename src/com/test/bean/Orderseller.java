@@ -23,12 +23,15 @@ public class Orderseller implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Proxys proxys;
 	private Integer pid;
 	private String pname;
-	private Set<Orders> orderses = new HashSet<Orders>(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -41,7 +44,7 @@ public class Orderseller implements java.io.Serializable {
 		this.proxys = proxys;
 		this.pid = pid;
 		this.pname = pname;
-		this.orderses = orderses;
+		
 	}
 
 	// Property accessors
@@ -82,15 +85,6 @@ public class Orderseller implements java.io.Serializable {
 
 	public void setPname(String pname) {
 		this.pname = pname;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderseller")
-	public Set<Orders> getOrderses() {
-		return this.orderses;
-	}
-
-	public void setOrderses(Set<Orders> orderses) {
-		this.orderses = orderses;
 	}
 
 }

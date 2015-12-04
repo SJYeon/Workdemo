@@ -41,9 +41,8 @@ public class Proxys implements java.io.Serializable {
 	private String city;
 	private String area;
 	private String local;
-	private Set<Orderseller> ordersellers = new HashSet<Orderseller>(0);
 	private Set<Proxyperson> proxypersons = new HashSet<Proxyperson>(0);
-	private Set<Goods> goodses = new HashSet<Goods>(0);
+
 
 	// Constructors
 
@@ -88,9 +87,9 @@ public class Proxys implements java.io.Serializable {
 		this.city = city;
 		this.area = area;
 		this.local = local;
-		this.ordersellers = ordersellers;
+		
 		this.proxypersons = proxypersons;
-		this.goodses = goodses;
+		
 	}
 
 	// Property accessors
@@ -233,15 +232,7 @@ public class Proxys implements java.io.Serializable {
 		this.local = local;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")
-	public Set<Orderseller> getOrdersellers() {
-		return this.ordersellers;
-	}
-
-	public void setOrdersellers(Set<Orderseller> ordersellers) {
-		this.ordersellers = ordersellers;
-	}
-
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")
 	public Set<Proxyperson> getProxypersons() {
 		return this.proxypersons;
@@ -251,13 +242,6 @@ public class Proxys implements java.io.Serializable {
 		this.proxypersons = proxypersons;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "proxys")
-	public Set<Goods> getGoodses() {
-		return this.goodses;
-	}
-
-	public void setGoodses(Set<Goods> goodses) {
-		this.goodses = goodses;
-	}
+	
 
 }
